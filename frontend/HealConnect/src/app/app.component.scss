@@ -23,3 +23,10 @@ header > app-head {
 main {
   padding: 20px;
 }
+
+@media (max-width: 400px) {
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
