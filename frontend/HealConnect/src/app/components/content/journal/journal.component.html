@@ -1,5 +1,5 @@
-<h1>Journal</h1>
-<form [formGroup]="form">
+<h2>Journal</h2>
+<form [formGroup]="overviewForm">
   <mat-form-field>
     <mat-label>Datum</mat-label>
     <input matInput formControlName="entryDate" [matDatepicker]="picker">
@@ -7,21 +7,70 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <section>
-    <div>
-      <label class="example-name-label">Value</label>
-      <label class="example-value-label">{{slider.value}}</label>
-    </div>
-    <mat-slider [min]="0" [max]="10" step="1">
-      <input matSliderThumb formControlName="state" #slider />
+    <p>Schlecht</p>
+    <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Wie fühlst du dich?</mat-label>
+      <input matSliderThumb formControlName="state"/>
+    </mat-slider>
+    <p>Gut</p>
+  </section>
+  <section>
+    <p>Gar nicht</p>
+    <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Wie viel hast du dich körperlich betätigt?</mat-label>
+      <input matSliderThumb formControlName="physicalActivity"/>
+    </mat-slider>
+    <p>Viel</p>
+  </section>
+  <section>
+    <p>Gar nicht</p>
+    <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Fühlst du eine Übelkeit oder Appetitlosigkeit?</mat-label>
+      <input matSliderThumb formControlName="state"/>
+    </mat-slider>
+    <p>Sehr</p>
+  </section>
+  <section>
+    <p>Gar nicht</p>
+    <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Fühlst du dich müde und/oder abgeschlagen?</mat-label>
+      <input matSliderThumb formControlName="nausea"/>
+    </mat-slider>
+    <p>Sehr</p>
+  </section>
+  <section>
+    <p>Gar nicht</p>
+    <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Fühlst du dich wegen deiner Krebserkrankung psychisch belastet?</mat-label>
+      <input matSliderThumb formControlName="state"/>
+    </mat-slider>
+    <p>Sehr</p>
+  </section>
+  <section>
+    <p>Gar nicht</p>
+    <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Fühlst du dich in deiner Lebensqualität eingeschränkt?</mat-label>
+      <input matSliderThumb formControlName="state"/>
+    </mat-slider>
+    <p>Sehr</p>
+  </section>
+  <section>
+    <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Wie viele Zigaretten hast du geraucht?</mat-label>
+      <input matSliderThumb formControlName="state"/>
     </mat-slider>
   </section>
   <section>
-    <label>Neue Symptome</label>
-    <mat-button-toggle-group formControlName="newSymptoms">
-      <mat-button-toggle value="true">Ja</mat-button-toggle>
-      <mat-button-toggle value="false">Nein</mat-button-toggle>
-    </mat-button-toggle-group>
+    <mat-slider [min]="0" [max]="30" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Wie viele Gläser Alkohol hast du getrunken?</mat-label>
+      <input matSliderThumb formControlName="state"/>
+    </mat-slider>
   </section>
-
+  <section>
+    <mat-slider [min]="0" [max]="30" step="1" discrete showTickMarks [displayWith]="formatLabel">
+      <mat-label>Wie viel wiegst du?</mat-label>
+      <input matSliderThumb formControlName="state"/>
+    </mat-slider>
+  </section>
 </form>
 

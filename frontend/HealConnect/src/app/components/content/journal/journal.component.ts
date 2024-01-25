@@ -10,6 +10,7 @@ import {MatInput} from "@angular/material/input";
 import {CommonModule} from "@angular/common";
 import {MatSlider, MatSliderModule, MatSliderThumb} from "@angular/material/slider";
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
+import {MatTooltip} from "@angular/material/tooltip";
 @Component({
   selector: 'app-journal',
   standalone: true,
@@ -28,19 +29,31 @@ import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-to
     MatSlider,
     MatSliderThumb,
     MatButtonToggleGroup,
-    MatButtonToggle
+    MatButtonToggle,
+    MatTooltip
   ],
   templateUrl: './journal.component.html',
   styleUrl: './journal.component.scss'
 })
 export class JournalComponent {
-  form: UntypedFormGroup;
+  overviewForm: UntypedFormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      entryDate: [''],
-      state: [],
-      newSymptoms: []
+    this.overviewForm = this.fb.group({
+      entryDate: [new Date()],
+      state: [0],
+      physicalActivity: [0],
+      nausea: [0],
+      tired: [0],
+      mentalStress: [0],
+      restrictedLiving: [0],
+      smokedCigarettes: [0],
+      alkohol: [0],
+      weight: [0],
     })
+  }
+
+  formatLabel(value: number): string {
+    return value.toString();
   }
 }
