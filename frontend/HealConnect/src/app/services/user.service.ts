@@ -7,11 +7,11 @@ import { Observable, of, throwError } from 'rxjs';
 })
 export class UserService {
   private userNameAndPasswordList = new Map<string, string>([
-    ['userName', 'hallo123'],
-    ['example_user', 'secret'],
-    ['dr_jones', 'geheim'],
-    ['support123', 'jaja'],
-    ['MacGyver', 'sythemisag']
+    ['userName@test.de', 'hallo123'],
+    ['example_user@test.de', 'secret'],
+    ['dr_jones@ukw.de', 'geheim'],
+    ['support123@test.de', 'jaja'],
+    ['MacGyver@systhemis.de', 'sythemisag']
   ]);
 
   constructor(private http: HttpClient) {
@@ -27,6 +27,7 @@ export class UserService {
   }
 
   register(value: any): Observable<any> {
-    return this.http.post('/api/register', value);
+    this.userNameAndPasswordList.set(value.username, value.password)
+    return of();
   }
 }
