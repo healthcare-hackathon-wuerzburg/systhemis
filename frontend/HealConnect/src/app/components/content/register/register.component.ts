@@ -12,6 +12,7 @@ import { UserService } from '../../../services/user.service';
 import { map, Observable, of } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,8 @@ import { RouterModule } from '@angular/router';
     MatDatepickerModule,
     MatRadioModule,
     AsyncPipe,
-    RouterModule
+    RouterModule,
+    MatCheckboxModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
@@ -41,6 +43,7 @@ export class RegisterComponent {
   userTypeStep: FormGroup;
   personDataStep: FormGroup;
   cancerDataStep: FormGroup;
+  cancerTreatment: FormGroup;
   contactDataStep: FormGroup;
 
   public constructor(private fb: FormBuilder,
@@ -58,8 +61,13 @@ export class RegisterComponent {
     })
     this.cancerDataStep = fb.group({
       cancerPosition: ['', Validators.required],
-      cancerSituation: ['', Validators.required],
-      cancerTreatment: ['', Validators.required]
+      cancerSituation: ['', Validators.required]
+    })
+    this.cancerTreatment = fb.group({
+      operation: [false],
+      infrared: [false],
+      medicin: [false],
+      other: [false]
     })
     this.contactDataStep = fb.group({
         email: ['', [Validators.required, Validators.email]],
@@ -85,7 +93,8 @@ export class RegisterComponent {
     const personValues = this.personDataStep.value;
     const cancerValues = this.cancerDataStep.value;
     const contactValues = this.contactDataStep.value;
-    const completeValues = { ...userValues,...personValues,...cancerValues,...contactValues};
+    const cancerTreatment = this.cancerTreatment.value;
+    const completeValues = { ...userValues,...personValues,...cancerValues,...contactValues, ...cancerTreatment};
 
     this.userService.register(completeValues)
       .subscribe({

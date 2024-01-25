@@ -75,15 +75,13 @@
              <mat-radio-button value="2">Mein Krebs wurde erfolgreich behandelt und ich bin in der Nachsorge.</mat-radio-button>
              <mat-radio-button value="3">Mein Krebs ist wiedergekehrt bzw. hat gestreut und wird ggf. erneut behandelt.</mat-radio-button>
           </mat-radio-group>
-          <label id="cancer-treatment-label">Wie wurde bzw. wird dein Krebs behandelt (Mehrfachnennung möglich)?</label>
-          <mat-radio-group aria-labelledby="cancer-situation-label"
-                           formControlName="cancerTreatment"
-                           class="flex-column">
-            <mat-radio-button value="1">Operation</mat-radio-button>
-            <mat-radio-button value="2">Bestrahlung</mat-radio-button>
-            <mat-radio-button value="3">Medikamentöse Therapie (z.B. Chemotherapie, Immuntherapie)</mat-radio-button>
-            <mat-radio-button value="4">Sonstiges</mat-radio-button>
-          </mat-radio-group>
+          <section class="example-section" [formGroup]="cancerTreatment">
+            <label id="cancer-treatment-label">Wie wurde bzw. wird dein Krebs behandelt (Mehrfachnennung möglich)?</label>
+            <p><mat-checkbox formControlName="operation">Operation</mat-checkbox></p>
+            <p><mat-checkbox formControlName="infrared">Bestrahlung</mat-checkbox></p>
+            <p><mat-checkbox formControlName="medicin">Medikamentöse Therapie (z.B. Chemotherapie, Immuntherapie)</mat-checkbox></p>
+            <p><mat-checkbox formControlName="other">Sonstiges</mat-checkbox></p>
+          </section>
           <div>
             <button mat-button matStepperPrevious>Zurück</button>
             <button mat-button matStepperNext>Weiter</button>
@@ -129,11 +127,13 @@
         <span>Du hast dich erfolgreich registriert. Du kannst direkt anfangen deine Journals zu schreiben.</span>
         <a [routerLink]="'/login'">Jetzt Anmelden.</a>
       </ng-container>
-      <div>
-        <button mat-button matStepperPrevious>Zurück</button>
-        <button mat-button [disabled]="!contactDataStep.valid"
-                (click)="sendRegistration()">Registrieren</button>
-      </div>
+      <ng-container *ngIf="!registerIsFinished">
+        <div>
+          <button mat-button matStepperPrevious>Zurück</button>
+          <button mat-button [disabled]="!contactDataStep.valid"
+                  (click)="sendRegistration()">Registrieren</button>
+        </div>
+      </ng-container>
     </mat-step>
   </mat-stepper>
 
