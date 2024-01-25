@@ -5,6 +5,7 @@ import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { NgIf } from '@angular/common';
 import { UserService } from '../../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent {
   loginForm: FormGroup;
 
   public constructor(private fb: FormBuilder,
-                     private userService: UserService) {
+                     private userService: UserService,
+                     private router: Router) {
     this.loginForm = fb.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -29,17 +31,13 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.userService.login(this.loginForm.value)
         .subscribe({
-          next(value) {
-            console.log('Adding: ' + value);
+          next: (value) => {
+            this.router.navigate(['dashboard']);
           },
-          error(error) {
-            console.log(error);
-            console.log(error);
-            // We actually could just remove this method,
-            // since we do not really care about errors right now.
-          },
-          complete() {
-            console.log('Sum equals: ');
+          error: (error) => {
+            if(error.status == 401) {
+              this.loginFailed = true;
+            }
           }
         });
     }

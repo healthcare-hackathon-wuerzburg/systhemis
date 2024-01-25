@@ -45,7 +45,6 @@ export class RegisterComponent {
     return this.registrationForm.controls['confirmPassword'];
   }
   get formGroupError(): any {
-    console.log(this.registrationForm.errors)
     return this.registrationForm.errors;
   }
 }
