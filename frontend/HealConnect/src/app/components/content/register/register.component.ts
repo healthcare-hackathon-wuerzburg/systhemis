@@ -63,7 +63,7 @@ export class RegisterComponent {
     })
     this.contactDataStep = fb.group({
         email: ['', [Validators.required, Validators.email]],
-        username: ['', [Validators.required, Validators.email]],
+        username: ['', [Validators.required]],
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required]
       },

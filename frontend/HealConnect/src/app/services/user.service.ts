@@ -23,7 +23,7 @@ export class UserService {
         return of({});
       }
     }
-    return throwError({status: 401})
+    return throwError({status: 401});
   }
 
   register(value: any): Observable<any> {
