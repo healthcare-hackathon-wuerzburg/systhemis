@@ -1,0 +1,46 @@
+---
+openapi: 3.1.0
+
+info:
+  title: HealConnect Api
+  description: Api für Hals- und Kopf-Krebs Patienten Kommunikation
+  version: 1.0.0
+
+servers:
+  - url: http:localhost:8080/v1
+
+tags:
+  - login
+
+paths:
+  /patientlogin:
+    post:
+      tags:
+        - login
+      summary: Logge dich als Patient ein
+      operationId: loginPatient
+      requestBody:
+        description: Die Login-Daten des Patienten
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatientLogin"
+      responses:
+        200:
+          description: Erfolgreicher Login
+        401:
+          description: Sie sind nicht authorisiert
+
+components:
+  schemas:
+    PatientLogin:
+      username:
+        description: Benutzername/E-Mailadresse des Patienten
+        type: string
+      password:
+        description: Das Passwort des Patientenen als hash
+        type: string
+      required:
+        - username
+        - password
