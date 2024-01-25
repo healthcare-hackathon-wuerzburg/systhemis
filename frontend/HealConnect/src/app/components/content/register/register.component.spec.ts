@@ -2,6 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterComponent } from './register.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -9,7 +12,8 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegisterComponent, NoopAnimationsModule]
+      imports: [RegisterComponent, NoopAnimationsModule],
+      providers: [{provide: HttpClient, useValue: {} as HttpClient}, provideRouter([]), provideNativeDateAdapter()]
     })
     .compileComponents();
 
