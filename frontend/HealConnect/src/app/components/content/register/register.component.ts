@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { confirmFieldValidator } from '../../shared/validator/CustomFormValidators';
 
 @Component({
   selector: 'app-register',
@@ -15,11 +16,12 @@ export class RegisterComponent {
 
   public constructor(private fb: FormBuilder) {
     this.registrationForm = fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required, ],
-      userType: ['', Validators.required]
-    })
+        email: ['', Validators.required],
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required],
+        userType: ['', Validators.required]
+      },
+      {validators: confirmFieldValidator('password', 'confirmPassword')})
   }
 
 }
