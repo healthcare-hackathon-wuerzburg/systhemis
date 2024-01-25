@@ -15,6 +15,11 @@ import {MatDivider} from "@angular/material/divider";
 import {MatStep, MatStepper, StepperOrientation} from "@angular/material/stepper";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {map, Observable, of} from "rxjs";
+import {MatButton} from "@angular/material/button";
+import {MatIcon} from "@angular/material/icon";
+import {JournalService} from "../../../services/journal.service";
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-journal',
   standalone: true,
@@ -37,7 +42,9 @@ import {map, Observable, of} from "rxjs";
     MatTooltip,
     MatDivider,
     MatStep,
-    MatStepper
+    MatStepper,
+    MatButton,
+    MatIcon
   ],
   templateUrl: './journal.component.html',
   styleUrl: './journal.component.scss'
@@ -51,7 +58,8 @@ export class JournalComponent {
   bleedingForm: UntypedFormGroup;
   stepperOrientation: Observable<StepperOrientation> = of('horizontal');
 
-  constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver) {
+  constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver, private journalService: JournalService,
+              private router: Router) {
     this.handleStepperBreakpoint();
     this.overviewForm = this.fb.group({
       entryDate: [new Date(), Validators.required],
@@ -62,7 +70,7 @@ export class JournalComponent {
       mentalStress: [0, Validators.required],
       restrictedLiving: [0, Validators.required],
       smokedCigarettes: [0, Validators.required],
-      alkohol: [0, Validators.required],
+      alcohol: [0, Validators.required],
       weight: [0, Validators.required],
     });
     this.painForm = this.fb.group({
@@ -95,10 +103,10 @@ export class JournalComponent {
     });
 
     this.symptomsForm = this.fb.group({
-      painForm: this.painForm,
-      swallowForm: this.swallowForm,
-      breathForm: this.breathForm,
-      bleedingForm: this.bleedingForm,
+      pain: this.painForm,
+      swallow: this.swallowForm,
+      breath: this.breathForm,
+      bleeding: this.bleedingForm,
     });
   }
 
@@ -110,5 +118,11 @@ export class JournalComponent {
 
   formatLabel(value: number): string {
     return value.toString();
+  }
+
+  saveJournalEntry() {
+    this.overviewForm.controls.entryDate.value.setHours(0, 0, 0, 0);
+    this.journalService.addJournalEntry({overview: this.overviewForm.value, symptoms: this.symptomsForm.value});
+    this.router.navigate(['dashboard']);
   }
 }

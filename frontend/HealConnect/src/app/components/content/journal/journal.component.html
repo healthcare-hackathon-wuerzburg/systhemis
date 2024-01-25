@@ -38,7 +38,7 @@
           <p>Gar nicht</p>
           <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true"
                       [displayWith]="formatLabel">
-            <input matSliderThumb formControlName="state"/>
+            <input matSliderThumb formControlName="nausea"/>
           </mat-slider>
           <p>Sehr</p>
         </div>
@@ -49,7 +49,7 @@
           <p>Gar nicht</p>
           <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true"
                       [displayWith]="formatLabel">
-            <input matSliderThumb formControlName="nausea"/>
+            <input matSliderThumb formControlName="tired"/>
           </mat-slider>
           <p>Sehr</p>
         </div>
@@ -60,7 +60,7 @@
           <p>Gar nicht</p>
           <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true"
                       [displayWith]="formatLabel">
-            <input matSliderThumb formControlName="state"/>
+            <input matSliderThumb formControlName="mentalStress"/>
           </mat-slider>
           <p>Sehr</p>
         </div>
@@ -71,7 +71,7 @@
           <p>Gar nicht</p>
           <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true"
                       [displayWith]="formatLabel">
-            <input matSliderThumb formControlName="state"/>
+            <input matSliderThumb formControlName="restrictedLiving"/>
           </mat-slider>
           <p>Sehr</p>
         </div>
@@ -79,19 +79,19 @@
       <section>
         <mat-label>Wie viele Zigaretten hast du geraucht?</mat-label>
         <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
-          <input matSliderThumb formControlName="state"/>
+          <input matSliderThumb formControlName="smokedCigarettes"/>
         </mat-slider>
       </section>
       <section>
         <mat-label>Wie viele Gläser Alkohol hast du getrunken?</mat-label>
         <mat-slider [min]="0" [max]="30" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
-          <input matSliderThumb formControlName="state"/>
+          <input matSliderThumb formControlName="alcohol"/>
         </mat-slider>
       </section>
       <section>
         <mat-label>Wie viel wiegst du?</mat-label>
-        <mat-slider [min]="0" [max]="30" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
-          <input matSliderThumb formControlName="state"/>
+        <mat-slider [min]="0" [max]="200" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="weight"/>
         </mat-slider>
       </section>
     </form>
@@ -223,7 +223,8 @@
         <mat-label>Luftnote bei körperlicher Belastung</mat-label>
         <div>
           <p>Keine</p>
-          <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true"
+                      [displayWith]="formatLabel">
             <input matSliderThumb formControlName="breathlessnessActivity"/>
           </mat-slider>
           <p>Sehr Stark</p>
@@ -291,7 +292,7 @@
         </div>
       </section>
       <section>
-        <mat-label>Das Blut wurde aus teiferen Bereichen ausgehustet</mat-label>
+        <mat-label>Das Blut wurde aus tieferen Bereichen ausgehustet</mat-label>
         <div>
           <p>Nie</p>
           <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true"
@@ -304,3 +305,7 @@
     </form>
   </mat-step>
 </mat-stepper>
+<button mat-flat-button (click)="saveJournalEntry()">
+  Eintrag speichern
+  <mat-icon>save</mat-icon>
+</button>
