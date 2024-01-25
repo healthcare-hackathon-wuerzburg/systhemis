@@ -12,6 +12,18 @@ html {
   }
 }
 
+.flex-one {
+  display: flex;
+  flex: 1;
+}
+
+.flex-column {
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  flex: 1;
+}
+
 /* Loading Animation, independent of Browser Style/Loadspeed */
 
 /* loader */

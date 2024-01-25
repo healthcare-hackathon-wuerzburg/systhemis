@@ -11,7 +11,6 @@ export class UserService {
   }
 
   login(value: any): Observable<any> {
-    console.log('/api/patientlogin');
     return this.http.post('/api/patientlogin', value);
   }
 }

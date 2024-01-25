@@ -1,17 +1,24 @@
-<h2> Login </h2>
+<div class="flex-column">
+  <h2> Login </h2>
 
-<form [formGroup]="loginForm">
-  <mat-form-field>
-    <mat-label>E-Mail:</mat-label>
-    <input formControlName="username" matInput type="text" >
-    <mat-error *ngIf="usernameControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
-    <mat-error *ngIf="usernameControl.errors?.required">Sie müssen eine E-Mail eingeben</mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Passwort:</mat-label>
-    <input formControlName="password" matInput type="password" >
-    <mat-error *ngIf="passwordControl.invalid">Sie müssen ein Passwort eingeben</mat-error>
-  </mat-form-field>
-  <mat-error *ngIf="loginFailed">Anmeldung Fehlgeschlagen. Bitte Prüfen sie ihre Eingaben.</mat-error>
-  <button mat-button [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
-</form>
+  <form class="flex-column" [formGroup]="loginForm">
+    <mat-form-field>
+      <mat-label>E-Mail:</mat-label>
+      <input formControlName="username" matInput type="text">
+      <mat-error *ngIf="usernameControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
+      <mat-error *ngIf="usernameControl.errors?.required">Du musst eine E-Mail eingeben</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Passwort:</mat-label>
+      <input formControlName="password" matInput type="password">
+      <mat-error *ngIf="passwordControl.invalid">Du musst ein Passwort eingeben</mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="loginFailed">Anmeldung Fehlgeschlagen. Bitte überprüfe deine Eingaben.</mat-error>
+    <button mat-button [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
+  </form>
+
+  <div class="register-info">
+    <span>Du hast noch keinen Account?</span>
+    <a [routerLink]="'register'">Jetzt Registrieren.</a>
+  </div>
+</div>
