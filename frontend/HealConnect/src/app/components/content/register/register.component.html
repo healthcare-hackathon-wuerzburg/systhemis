@@ -1,31 +1,61 @@
-<h2> Registrieren </h2>
+<div class="flex-column">
+  <h2> Registrieren </h2>
 
-<form [formGroup]="registrationForm">
-  <mat-form-field>
-    <mat-label>E-Mail:</mat-label>
-    <input formControlName="email" matInput type="text" >
-    <mat-error *ngIf="emailControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
-    <mat-error *ngIf="emailControl.errors?.required">Sie müssen eine E-Mail eingeben</mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Passwort:</mat-label>
-    <input formControlName="password" matInput type="password" >
-    <mat-error *ngIf="passwordControl.invalid">Sie müssen ein Passwort eingeben</mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Passwort Bestätigen:</mat-label>
-    <input formControlName="confirmPassword" matInput type="password" >
-    <mat-error *ngIf="confirmPasswordControl.errors?.required">Sie müssen ihr Passwort bestätigen</mat-error>
-  </mat-form-field>
-  <mat-error *ngIf="formGroupError?.confirmFailed">Die Passwörter stimmen nicht überein</mat-error>
-  <mat-form-field>
-    <mat-label>Benutzerart:</mat-label>
-    <mat-select id="userType" formControlName="userType">
-      <mat-option value="user">Patient</mat-option>
-      <mat-option value="arzt">Arzt</mat-option>
-      <mat-option value="arztHelfer">Arzt-Helfer</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-button [disabled]="!registrationForm.valid">Registrieren</button>
-  <button mat-button [disabled]="!registrationForm.valid">Registrieren</button>
-</form>
+  <mat-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="firstRegistrationStep" label="Wer bin ich?">
+      <form class="flex-column" [formGroup]="firstRegistrationStep">
+        <mat-form-field>
+          <mat-label>E-Mail:</mat-label>
+          <input formControlName="email" matInput type="text">
+          <mat-error *ngIf="emailControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
+          <mat-error *ngIf="emailControl.errors?.required">Sie müssen eine E-Mail eingeben</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Passwort:</mat-label>
+          <input formControlName="password" matInput type="password">
+          <mat-error *ngIf="passwordControl.invalid">Sie müssen ein Passwort eingeben</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Passwort Bestätigen:</mat-label>
+          <input formControlName="confirmPassword" matInput type="password">
+          <mat-error *ngIf="confirmPasswordControl.errors?.required">Sie müssen ihr Passwort bestätigen</mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="formGroupError?.confirmFailed">Die Passwörter stimmen nicht überein</mat-error>
+        <mat-form-field>
+          <mat-label>Benutzerart:</mat-label>
+          <mat-select id="userType" formControlName="userType">
+            <mat-option value="user">Patient</mat-option>
+            <mat-option value="arzt">Arzt</mat-option>
+            <mat-option value="arztHelfer">Arzt-Helfer</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Weiter</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondRegistrationStep" label="Fill out your address">
+      <form class="flex-column" [formGroup]="secondRegistrationStep">
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="test" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+      <button mat-button [disabled]="!firstRegistrationStep.valid">Registrieren</button>
+    </mat-step>
+  </mat-stepper>
+
+</div>
