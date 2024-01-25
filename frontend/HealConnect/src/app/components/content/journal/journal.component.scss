@@ -12,15 +12,19 @@ h2 {
   text-align: center;
 }
 
-label {
-  margin: 1rem;
-}
-
 section {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+
+  mat-slider {
+    width: 100%;
+  }
 
   div {
-   display: flex;
+    display: flex;
+    align-items: stretch;
+    flex: 1;
   }
 }
+

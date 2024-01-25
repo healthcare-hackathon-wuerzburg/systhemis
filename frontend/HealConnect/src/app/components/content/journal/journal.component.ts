@@ -74,24 +74,24 @@ export class JournalComponent {
     });
     this.swallowForm = this.fb.group({
       swallowPain: [0, Validators.required],
-      t1: [0, Validators.required],
-      t2: [0, Validators.required],
-      t3: [0, Validators.required],
-      t4: [0, Validators.required],
-      t5: [0, Validators.required],
-      t6: [0, Validators.required],
+      mouthDryness: [0, Validators.required],
+      smellTastingIssues: [0, Validators.required],
+      swallowingFood: [0, Validators.required],
+      swallowingDrinks: [0, Validators.required],
+      swallowUp: [0, Validators.required],
+      feedingTube: [0, Validators.required],
     });
     this.breathForm = this.fb.group({
-      b1: [0, Validators.required],
-      b2: [0, Validators.required],
-      b3: [0, Validators.required],
-      b4: [0, Validators.required],
+      breathlessnessCalm: [0, Validators.required],
+      breathlessnessActivity: [0, Validators.required],
+      coughing: [0, Validators.required],
+      hoarseness: [0, Validators.required],
     });
     this.bleedingForm = this.fb.group({
-      c1: [0, Validators.required],
-      c2: [0, Validators.required],
-      c3: [0, Validators.required],
-      c4: [0, Validators.required],
+      bleedNose: [0, Validators.required],
+      bleedMouth: [0, Validators.required],
+      bleedThroat: [0, Validators.required],
+      bleedDeep: [0, Validators.required],
     });
 
     this.symptomsForm = this.fb.group({
