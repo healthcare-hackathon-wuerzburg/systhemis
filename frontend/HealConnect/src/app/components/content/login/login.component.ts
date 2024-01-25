@@ -5,12 +5,12 @@ import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { NgIf } from '@angular/common';
 import { UserService } from '../../../services/user.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, MatDatepicker, MatDatepickerInput, MatDatepickerToggle, MatFormField, MatInput, MatLabel, MatError, NgIf],
+  imports: [RouterModule, ReactiveFormsModule, MatDatepicker, MatDatepickerInput, MatDatepickerToggle, MatFormField, MatInput, MatLabel, MatError, NgIf],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
