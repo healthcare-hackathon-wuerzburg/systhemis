@@ -20,6 +20,7 @@ export class UserService {
   login(value: { username: string, password: string }): Observable<any> {
     if(this.userNameAndPasswordList.has(value.username.toLowerCase())) {
       if(this.userNameAndPasswordList.get(value.username) == value.password) {
+        localStorage.setItem('username', value.username);
         return of({});
       }
     }
