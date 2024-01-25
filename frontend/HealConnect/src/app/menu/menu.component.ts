@@ -22,5 +22,4 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-
 }

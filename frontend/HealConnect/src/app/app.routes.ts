@@ -4,6 +4,7 @@ import { RegisterComponent } from './components/content/register/register.compon
 import { WelcomeComponent } from './welcome/welcome.component';
 import {JournalComponent} from "./components/content/journal/journal.component";
 import { DashboardComponent } from './components/content/dashboard/dashboard.component';
+import { InfoComponent } from './components/content/info/info.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -11,5 +12,6 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'journal', component: JournalComponent},
+  {path: 'info', component: InfoComponent},
   {path: 'dashboard', component: DashboardComponent}
 ];
