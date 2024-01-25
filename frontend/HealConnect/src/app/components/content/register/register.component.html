@@ -1,17 +1,31 @@
 <h2> Registrieren </h2>
 
 <form [formGroup]="registrationForm">
-  <label for="email">E-Mail:</label>
-  <input id="email" type="text" formControlName="email">
-
-  <label for="password">Passwort:</label>
-  <input id="password" type="password" formControlName="password">
-
-  <label for="confirmPassword">Passwort Bestätigen:</label>
-  <input id="confirmPassword" type="password" formControlName="confirmPassword">
-
-  <label for="userType">Benutzerart:</label>
-  <input id="userType" type="text" formControlName="userType">
-
-  <button type="submit" [disabled]="!registrationForm.valid">Registrieren</button>
+  <mat-form-field>
+    <mat-label>E-Mail:</mat-label>
+    <input formControlName="email" matInput type="text" >
+    <mat-error *ngIf="emailControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
+    <mat-error *ngIf="emailControl.errors?.required">Sie müssen eine E-Mail eingeben</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Passwort:</mat-label>
+    <input formControlName="password" matInput type="password" >
+    <mat-error *ngIf="passwordControl.invalid">Sie müssen ein Passwort eingeben</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Passwort Bestätigen:</mat-label>
+    <input formControlName="confirmPassword" matInput type="password" >
+    <mat-error *ngIf="confirmPasswordControl.errors?.required">Sie müssen ihr Passwort bestätigen</mat-error>
+  </mat-form-field>
+  <mat-error *ngIf="formGroupError?.confirmFailed">Die Passwörter stimmen nicht überein</mat-error>
+  <mat-form-field>
+    <mat-label>Benutzerart:</mat-label>
+    <mat-select id="userType" formControlName="userType">
+      <mat-option value="user">Patient</mat-option>
+      <mat-option value="arzt">Arzt</mat-option>
+      <mat-option value="arztHelfer">Arzt-Helfer</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button [disabled]="!registrationForm.valid">Registrieren</button>
+  <button mat-button [disabled]="!registrationForm.valid">Registrieren</button>
 </form>

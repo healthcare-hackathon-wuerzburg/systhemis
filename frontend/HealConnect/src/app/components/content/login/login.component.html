@@ -1,11 +1,17 @@
 <h2> Login </h2>
 
 <form [formGroup]="loginForm">
-  <label for="email">E-Mail:</label>
-  <input id="email" type="text" formControlName="email">
-
-  <label for="password">Passwort:</label>
-  <input id="password" type="password" formControlName="password">
-
-  <button type="submit" [disabled]="!loginForm.valid">Login</button>
+  <mat-form-field>
+    <mat-label>E-Mail:</mat-label>
+    <input formControlName="email" matInput type="text" >
+    <mat-error *ngIf="emailControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
+    <mat-error *ngIf="emailControl.errors?.required">Sie müssen eine E-Mail eingeben</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Passwort:</mat-label>
+    <input formControlName="password" matInput type="password" >
+    <mat-error *ngIf="passwordControl.invalid">Sie müssen ein Passwort eingeben</mat-error>
+  </mat-form-field>
+  <mat-error *ngIf="loginFailed">Anmeldung Fehlgeschlagen. Bitte Prüfen sie ihre Eingaben.</mat-error>
+  <button mat-button [disabled]="!loginForm.valid">Login</button>
 </form>
