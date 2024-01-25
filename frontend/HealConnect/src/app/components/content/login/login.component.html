@@ -1,1 +1,11 @@
-<p>login works!</p>
+<h2> Login </h2>
+
+<form [formGroup]="loginForm">
+  <label for="email">E-Mail:</label>
+  <input id="email" type="text" formControlName="email">
+
+  <label for="password">Passwort:</label>
+  <input id="password" type="password" formControlName="password">
+
+  <button type="submit" [disabled]="!loginForm.valid">Login</button>
+</form>

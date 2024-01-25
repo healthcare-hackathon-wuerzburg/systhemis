@@ -1,1 +1,17 @@
-<p>register works!</p>
+<h2> Registrieren </h2>
+
+<form [formGroup]="registrationForm">
+  <label for="email">E-Mail:</label>
+  <input id="email" type="text" formControlName="email">
+
+  <label for="password">Passwort:</label>
+  <input id="password" type="password" formControlName="password">
+
+  <label for="confirmPassword">Passwort Bestätigen:</label>
+  <input id="confirmPassword" type="password" formControlName="confirmPassword">
+
+  <label for="userType">Benutzerart:</label>
+  <input id="userType" type="text" formControlName="userType">
+
+  <button type="submit" [disabled]="!registrationForm.valid">Registrieren</button>
+</form>
