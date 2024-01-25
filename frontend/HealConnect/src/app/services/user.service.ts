@@ -7,18 +7,18 @@ import { Observable, of, throwError } from 'rxjs';
 })
 export class UserService {
   private userNameAndPasswordList = new Map<string, string>([
-    ['userName@test.de', 'hallo123'],
+    ['username@test.de', 'hallo123'],
     ['example_user@test.de', 'secret'],
     ['dr_jones@ukw.de', 'geheim'],
     ['support123@test.de', 'jaja'],
-    ['MacGyver@systhemis.de', 'sythemisag']
+    ['macgyver@systhemis.de', 'sythemisag']
   ]);
 
   constructor(private http: HttpClient) {
   }
 
   login(value: { username: string, password: string }): Observable<any> {
-    if(this.userNameAndPasswordList.has(value.username)) {
+    if(this.userNameAndPasswordList.has(value.username.toLowerCase())) {
       if(this.userNameAndPasswordList.get(value.username) == value.password) {
         return of();
       }
