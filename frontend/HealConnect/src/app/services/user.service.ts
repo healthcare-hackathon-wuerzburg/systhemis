@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-  @Injectable({
+@Injectable({
   providedIn: 'root'
 })
 export class UserService {
@@ -11,6 +11,10 @@ export class UserService {
   }
 
   login(value: any): Observable<any> {
-    return this.http.post('/api/patientlogin', value);
+    return this.http.post('/api/login', value);
+  }
+
+  register(value: any): Observable<any> {
+    return this.http.post('/api/register', value);
   }
 }
