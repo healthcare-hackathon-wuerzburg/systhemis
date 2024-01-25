@@ -12,6 +12,7 @@ import {MatSlider, MatSliderModule, MatSliderThumb} from "@angular/material/slid
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatDivider} from "@angular/material/divider";
+import {MatStep, MatStepper} from "@angular/material/stepper";
 @Component({
   selector: 'app-journal',
   standalone: true,
@@ -32,13 +33,20 @@ import {MatDivider} from "@angular/material/divider";
     MatButtonToggleGroup,
     MatButtonToggle,
     MatTooltip,
-    MatDivider
+    MatDivider,
+    MatStep,
+    MatStepper
   ],
   templateUrl: './journal.component.html',
   styleUrl: './journal.component.scss'
 })
 export class JournalComponent {
   overviewForm: UntypedFormGroup;
+  symptomsForm: UntypedFormGroup;
+  painForm: UntypedFormGroup;
+  swallowForm: UntypedFormGroup;
+  breathForm: UntypedFormGroup;
+  bleedingForm: UntypedFormGroup;
 
   constructor(private fb: FormBuilder) {
     this.overviewForm = this.fb.group({
@@ -52,7 +60,42 @@ export class JournalComponent {
       smokedCigarettes: [0, Validators.required],
       alkohol: [0, Validators.required],
       weight: [0, Validators.required],
-    })
+    });
+    this.painForm = this.fb.group({
+      headPain: [0, Validators.required],
+      nosePain: [0, Validators.required],
+      mouthPain: [0, Validators.required],
+      throatPain: [0, Validators.required],
+      neckPain: [0, Validators.required]
+    });
+    this.swallowForm = this.fb.group({
+      swallowPain: [0, Validators.required],
+      t1: [0, Validators.required],
+      t2: [0, Validators.required],
+      t3: [0, Validators.required],
+      t4: [0, Validators.required],
+      t5: [0, Validators.required],
+      t6: [0, Validators.required],
+    });
+    this.breathForm = this.fb.group({
+      b1: [0, Validators.required],
+      b2: [0, Validators.required],
+      b3: [0, Validators.required],
+      b4: [0, Validators.required],
+    });
+    this.bleedingForm = this.fb.group({
+      c1: [0, Validators.required],
+      c2: [0, Validators.required],
+      c3: [0, Validators.required],
+      c4: [0, Validators.required],
+    });
+
+    this.symptomsForm = this.fb.group({
+      painForm: this.painForm,
+      swallowForm: this.swallowForm,
+      breathForm: this.breathForm,
+      bleedingForm: this.bleedingForm,
+    });
   }
 
   formatLabel(value: number): string {

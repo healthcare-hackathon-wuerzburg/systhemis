@@ -1,90 +1,227 @@
-<form [formGroup]="overviewForm" class="flex-column">
-  <h2>Journal</h2>
-  <mat-form-field>
-    <mat-label>Datum</mat-label>
-    <input matInput formControlName="entryDate" [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+<mat-stepper [linear]="true">
+  <mat-step [stepControl]="overviewForm" label="Übersicht">
+    <form class="flex-column" [formGroup]="overviewForm">
+      <h3>Journal</h3>
+      <mat-form-field>
+        <mat-label>Datum</mat-label>
+        <input matInput formControlName="entryDate" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-  <h3>Überblick</h3>
-  <section>
-    <mat-label>Wie fühlst du dich?</mat-label>
-    <div>
-      <p>Schlecht</p>
-      <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
-        <input matSliderThumb formControlName="state"/>
-      </mat-slider>
-      <p>Gut</p>
-    </div>
-  </section>
-  <section>
-    <mat-label>Wie viel hast du dich körperlich betätigt?</mat-label>
-    <div>
-      <p>Gar nicht</p>
-      <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
-        <input matSliderThumb formControlName="physicalActivity"/>
-      </mat-slider>
-      <p>Viel</p>
-    </div>
-  </section>
-  <section>
-    <mat-label>Fühlst du eine Übelkeit oder Appetitlosigkeit?</mat-label>
-    <div>
-      <p>Gar nicht</p>
-      <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
-        <input matSliderThumb formControlName="state"/>
-      </mat-slider>
-      <p>Sehr</p>
-    </div>
-  </section>
-  <section>
-    <mat-label>Fühlst du dich müde und/oder abgeschlagen?</mat-label>
-    <div>
-      <p>Gar nicht</p>
-      <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
-        <input matSliderThumb formControlName="nausea"/>
-      </mat-slider>
-      <p>Sehr</p>
-    </div>
-  </section>
-  <section>
-    <mat-label>Fühlst du dich wegen deiner Krebserkrankung psychisch belastet?</mat-label>
-    <div>
-      <p>Gar nicht</p>
-      <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
-        <input matSliderThumb formControlName="state"/>
-      </mat-slider>
-      <p>Sehr</p>
-    </div>
-  </section>
-  <section>
-    <mat-label>Fühlst du dich in deiner Lebensqualität eingeschränkt?</mat-label>
-    <div>
-      <p>Gar nicht</p>
-      <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
-        <input matSliderThumb formControlName="state"/>
-      </mat-slider>
-      <p>Sehr</p>
-    </div>
-  </section>
-  <section>
-    <mat-label>Wie viele Zigaretten hast du geraucht?</mat-label>
-    <mat-slider [min]="0" [max]="10" step="1" discrete showTickMarks [displayWith]="formatLabel">
-      <input matSliderThumb formControlName="state"/>
-    </mat-slider>
-  </section>
-  <section>
-    <mat-label>Wie viele Gläser Alkohol hast du getrunken?</mat-label>
-    <mat-slider [min]="0" [max]="30" step="1" discrete showTickMarks [displayWith]="formatLabel">
-      <input matSliderThumb formControlName="state"/>
-    </mat-slider>
-  </section>
-  <section>
-    <mat-label>Wie viel wiegst du?</mat-label>
-    <mat-slider [min]="0" [max]="30" step="1" discrete showTickMarks [displayWith]="formatLabel">
-      <input matSliderThumb formControlName="state"/>
-    </mat-slider>
-  </section>
-</form>
-
+      <h3>Überblick</h3>
+      <section>
+        <mat-label>Wie fühlst du dich?</mat-label>
+        <div>
+          <p>Schlecht</p>
+          <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+            <input matSliderThumb formControlName="state"/>
+          </mat-slider>
+          <p>Gut</p>
+        </div>
+      </section>
+      <section>
+        <mat-label>Wie viel hast du dich körperlich betätigt?</mat-label>
+        <div>
+          <p>Gar nicht</p>
+          <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+            <input matSliderThumb formControlName="physicalActivity"/>
+          </mat-slider>
+          <p>Viel</p>
+        </div>
+      </section>
+      <section>
+        <mat-label>Fühlst du eine Übelkeit oder Appetitlosigkeit?</mat-label>
+        <div>
+          <p>Gar nicht</p>
+          <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+            <input matSliderThumb formControlName="state"/>
+          </mat-slider>
+          <p>Sehr</p>
+        </div>
+      </section>
+      <section>
+        <mat-label>Fühlst du dich müde und/oder abgeschlagen?</mat-label>
+        <div>
+          <p>Gar nicht</p>
+          <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+            <input matSliderThumb formControlName="nausea"/>
+          </mat-slider>
+          <p>Sehr</p>
+        </div>
+      </section>
+      <section>
+        <mat-label>Fühlst du dich wegen deiner Krebserkrankung psychisch belastet?</mat-label>
+        <div>
+          <p>Gar nicht</p>
+          <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+            <input matSliderThumb formControlName="state"/>
+          </mat-slider>
+          <p>Sehr</p>
+        </div>
+      </section>
+      <section>
+        <mat-label>Fühlst du dich in deiner Lebensqualität eingeschränkt?</mat-label>
+        <div>
+          <p>Gar nicht</p>
+          <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+            <input matSliderThumb formControlName="state"/>
+          </mat-slider>
+          <p>Sehr</p>
+        </div>
+      </section>
+      <section>
+        <mat-label>Wie viele Zigaretten hast du geraucht?</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="state"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Wie viele Gläser Alkohol hast du getrunken?</mat-label>
+        <mat-slider [min]="0" [max]="30" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="state"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Wie viel wiegst du?</mat-label>
+        <mat-slider [min]="0" [max]="30" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="state"/>
+        </mat-slider>
+      </section>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="symptomsForm" label="Symptome">
+    <form [formGroup]="painForm">
+      <h3>Schmerzen in Ruhe</h3>
+      <section>
+        <mat-label>Kopfschmerzen</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="headPain"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>in der Nase</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="nosePain"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>in der Mundhöhle</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="mouthPain"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>im Rachen</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="throatPain"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>im Halsbereich</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="neckPain"/>
+        </mat-slider>
+      </section>
+    </form>
+    <form [formGroup]="swallowForm">
+      <h3>Probleme beim Schlucken</h3>
+      <section>
+        <mat-label>Schmerzen beim Schlucken</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="swallowPain"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Mundtrockenheit</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="t1"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Riechen und/oder Schmecken</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="t2"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Herunterschlucken fester Speisen</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="t3"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Herunterschlucken von Flüssigkeiten</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="t4"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Verschlucken</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="t5"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Ernährung über eine Magensonde</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="t6"/>
+        </mat-slider>
+      </section>
+    </form>
+    <form [formGroup]="breathForm">
+      <h3>Probleme beim Atmen und Sprechen</h3>
+      <section>
+        <mat-label>Luftnot in Ruhe</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="b1"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Luftnote bei körperlicher Belastung</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="b2"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Husten</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="b3"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Heiserkeit</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="b4"/>
+        </mat-slider>
+      </section>
+    </form>
+    <form [formGroup]="bleedingForm">
+      <h3>Blutungen</h3>
+      <section>
+        <mat-label>aus der Nase</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="c1"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>aus der Mundhöhle</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="c2"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>aus tieferen Bereichen im Rachen</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="c3"/>
+        </mat-slider>
+      </section>
+      <section>
+        <mat-label>Das Blut wurde aus teiferen Bereichen ausgehustet</mat-label>
+        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="c4"/>
+        </mat-slider>
+      </section>
+    </form>
+  </mat-step>
+</mat-stepper>
