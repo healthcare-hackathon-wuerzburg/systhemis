@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule, UntypedFormGroup} from "@angular/forms";
+import {FormBuilder, ReactiveFormsModule, UntypedFormGroup, Validators} from "@angular/forms";
 import {MatFormFieldModule, MatHint, MatLabel, MatSuffix} from "@angular/material/form-field";
 import {
   MatDatepickerInput,
@@ -11,6 +11,7 @@ import {CommonModule} from "@angular/common";
 import {MatSlider, MatSliderModule, MatSliderThumb} from "@angular/material/slider";
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
 import {MatTooltip} from "@angular/material/tooltip";
+import {MatDivider} from "@angular/material/divider";
 @Component({
   selector: 'app-journal',
   standalone: true,
@@ -30,7 +31,8 @@ import {MatTooltip} from "@angular/material/tooltip";
     MatSliderThumb,
     MatButtonToggleGroup,
     MatButtonToggle,
-    MatTooltip
+    MatTooltip,
+    MatDivider
   ],
   templateUrl: './journal.component.html',
   styleUrl: './journal.component.scss'
@@ -40,16 +42,16 @@ export class JournalComponent {
 
   constructor(private fb: FormBuilder) {
     this.overviewForm = this.fb.group({
-      entryDate: [new Date()],
-      state: [0],
-      physicalActivity: [0],
-      nausea: [0],
-      tired: [0],
-      mentalStress: [0],
-      restrictedLiving: [0],
-      smokedCigarettes: [0],
-      alkohol: [0],
-      weight: [0],
+      entryDate: [new Date(), Validators.required],
+      state: [0, Validators.required],
+      physicalActivity: [0, Validators.required],
+      nausea: [0, Validators.required],
+      tired: [0, Validators.required],
+      mentalStress: [0, Validators.required],
+      restrictedLiving: [0, Validators.required],
+      smokedCigarettes: [0, Validators.required],
+      alkohol: [0, Validators.required],
+      weight: [0, Validators.required],
     })
   }
 

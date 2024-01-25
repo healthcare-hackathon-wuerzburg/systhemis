@@ -1,7 +1,25 @@
+:host {
+  display: flex;
+  flex: 1;
+
+  form {
+    justify-content: center;
+  }
+}
+
+h2 {
+  text-align: center;
+}
+
 label {
-  margin-right: 1rem;
+  margin: 1rem;
 }
 
 section {
   display: flex;
+  flex-direction: column;
+
+  div {
+   display: flex;
+  }
 }
