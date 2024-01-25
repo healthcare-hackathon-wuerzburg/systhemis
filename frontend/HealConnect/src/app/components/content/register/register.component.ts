@@ -11,6 +11,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { UserService } from '../../../services/user.service';
 import { map, Observable, of } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -25,13 +26,15 @@ import { BreakpointObserver } from '@angular/cdk/layout';
     MatStepperModule,
     MatDatepickerModule,
     MatRadioModule,
-    AsyncPipe
+    AsyncPipe,
+    RouterModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
   isPatientRegistration = false;
+  registerIsFinished = false;
 
   stepperOrientation: Observable<StepperOrientation> = of('horizontal');
 
@@ -87,7 +90,7 @@ export class RegisterComponent {
     this.userService.register(completeValues)
       .subscribe({
         next: (value) => {
-          // Figure out later
+          this.registerIsFinished = true;
         }
       });
   }

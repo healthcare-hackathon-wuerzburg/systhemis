@@ -125,6 +125,10 @@
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <span>Du bist fertig.</span>
+      <ng-container *ngIf="registerIsFinished">
+        <span>Du hast dich erfolgreich registriert. Du kannst direkt anfangen deine Journals zu schreiben.</span>
+        <a [routerLink]="'/login'">Jetzt Anmelden.</a>
+      </ng-container>
       <div>
         <button mat-button matStepperPrevious>Zurück</button>
         <button mat-button [disabled]="!contactDataStep.valid"
