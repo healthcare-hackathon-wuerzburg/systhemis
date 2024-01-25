@@ -1,13 +1,7 @@
 <nav id="menu">
   <mat-list>
-    <mat-list-item>
-      <a routerLink="home">Home</a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="register">Registrieren</a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="login">Login</a>
+    <mat-list-item *ngFor="let menumodel of menuService.getMenuModel()">
+      <a [routerLink]="menumodel.link">{{menumodel.label}}</a>
     </mat-list-item>
   </mat-list>
 </nav>
@@ -16,7 +10,7 @@
   <mat-icon>menu</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-  <a mat-menu-item routerLink="home">Home</a>
-  <a mat-menu-item routerLink="register">Registrieren</a>
-  <a mat-menu-item routerLink="login">Login</a>
+  <ng-container *ngFor="let menumodel of menuService.getMenuModel()">
+    <a mat-menu-item [routerLink]="menumodel.link">{{menumodel.label}}</a>
+  </ng-container>
 </mat-menu>
