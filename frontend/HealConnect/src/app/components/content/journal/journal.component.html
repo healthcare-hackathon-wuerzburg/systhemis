@@ -1,4 +1,4 @@
-<mat-stepper [linear]="true">
+<mat-stepper [linear]="true" [orientation]="(stepperOrientation | async)!">
   <mat-step [stepControl]="overviewForm" label="Übersicht">
     <form class="flex-column" [formGroup]="overviewForm">
       <h3>Journal</h3>

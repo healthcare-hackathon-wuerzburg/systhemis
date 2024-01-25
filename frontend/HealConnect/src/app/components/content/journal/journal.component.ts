@@ -12,7 +12,9 @@ import {MatSlider, MatSliderModule, MatSliderThumb} from "@angular/material/slid
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatDivider} from "@angular/material/divider";
-import {MatStep, MatStepper} from "@angular/material/stepper";
+import {MatStep, MatStepper, StepperOrientation} from "@angular/material/stepper";
+import {BreakpointObserver} from "@angular/cdk/layout";
+import {map, Observable, of} from "rxjs";
 @Component({
   selector: 'app-journal',
   standalone: true,
@@ -47,8 +49,10 @@ export class JournalComponent {
   swallowForm: UntypedFormGroup;
   breathForm: UntypedFormGroup;
   bleedingForm: UntypedFormGroup;
+  stepperOrientation: Observable<StepperOrientation> = of('horizontal');
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver) {
+    this.handleStepperBreakpoint();
     this.overviewForm = this.fb.group({
       entryDate: [new Date(), Validators.required],
       state: [0, Validators.required],
@@ -96,6 +100,12 @@ export class JournalComponent {
       breathForm: this.breathForm,
       bleedingForm: this.bleedingForm,
     });
+  }
+
+  handleStepperBreakpoint() {
+    this.stepperOrientation = this.breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
   }
 
   formatLabel(value: number): string {
