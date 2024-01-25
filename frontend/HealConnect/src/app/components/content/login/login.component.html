@@ -3,9 +3,9 @@
 <form [formGroup]="loginForm">
   <mat-form-field>
     <mat-label>E-Mail:</mat-label>
-    <input formControlName="email" matInput type="text" >
-    <mat-error *ngIf="emailControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
-    <mat-error *ngIf="emailControl.errors?.required">Sie müssen eine E-Mail eingeben</mat-error>
+    <input formControlName="username" matInput type="text" >
+    <mat-error *ngIf="usernameControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
+    <mat-error *ngIf="usernameControl.errors?.required">Sie müssen eine E-Mail eingeben</mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Passwort:</mat-label>
@@ -13,5 +13,5 @@
     <mat-error *ngIf="passwordControl.invalid">Sie müssen ein Passwort eingeben</mat-error>
   </mat-form-field>
   <mat-error *ngIf="loginFailed">Anmeldung Fehlgeschlagen. Bitte Prüfen sie ihre Eingaben.</mat-error>
-  <button mat-button [disabled]="!loginForm.valid">Login</button>
+  <button mat-button [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
 </form>
