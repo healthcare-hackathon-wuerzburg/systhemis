@@ -1,0 +1,22 @@
+<nav id="menu">
+  <mat-list>
+    <mat-list-item>
+      <a routerLink="home">Home</a>
+    </mat-list-item>
+    <mat-list-item>
+      <a routerLink="register">Registrieren</a>
+    </mat-list-item>
+    <mat-list-item>
+      <a routerLink="login">Login</a>
+    </mat-list-item>
+  </mat-list>
+</nav>
+
+<button mat-flat-button id="menubutton" [matMenuTriggerFor]="menu" aria-label="Menü">
+  <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <a mat-menu-item routerLink="home">Home</a>
+  <a mat-menu-item routerLink="register">Registrieren</a>
+  <a mat-menu-item routerLink="login">Login</a>
+</mat-menu>

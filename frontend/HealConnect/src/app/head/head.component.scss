@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  h2 {
+    font-size: medium;
+  }
+}

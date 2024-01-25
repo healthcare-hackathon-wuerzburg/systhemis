@@ -1,0 +1,23 @@
+mat-list {
+  display: flex;
+  flex-direction: row;
+}
+
+#menubutton {
+  display: none;
+  background-color: var(--app-header-color);
+}
+
+mat-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  #menubutton {
+    display: flex;
+  }
+  #menu {
+    display: none;
+  }
+}

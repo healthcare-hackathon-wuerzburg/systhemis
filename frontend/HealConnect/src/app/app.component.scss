@@ -1,4 +1,22 @@
 :host {
   display: flex;
   flex: 1;
+  flex-direction: column;
 }
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  background-color: var(--app-header-color);
+  flex-grow: 1;
+}
+
+header > app-head {
+  flex-grow: 2;
+}
+
