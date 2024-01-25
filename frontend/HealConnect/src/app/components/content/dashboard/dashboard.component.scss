@@ -1,6 +1,10 @@
 :host {
   display: flex;
-  gap: 30px;
+  gap: 15px;
+}
+
+a {
+  text-decoration: none;
 }
 
 mat-card {
