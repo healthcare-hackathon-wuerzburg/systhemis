@@ -1,8 +1,10 @@
-# PROJECTNAME
+# HealConnect
 
-## Problem Statement
+## Problemstellung
 
-Describe the main problem here.
+Eine Progressive Web App die es Patienten mit Kopf- und Nackenkrebs erlaubt,
+während ihrer Behandlung und Folgebetreuung, ihre Symptome zu tracken und
+mit ihrem Arzt zu teilen. 
 
 ## Idea
 
@@ -16,9 +18,10 @@ This section describes the requirements of the project and how to get started.
 
 List all requirements here
 
-- Python
-- x
-- y
+- Adoptium JDK Version 21.0.2
+- Maven
+- Node & npm oder NVM
+- 
 
 ### Installation
 
