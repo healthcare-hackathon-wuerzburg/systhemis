@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.3
 
 info:
   title: HealConnect Api
@@ -12,33 +12,52 @@ tags:
   - login
 
 paths:
-  /patientlogin:
+  /login:
     post:
       tags:
         - login
-      summary: Logge dich als Patient ein
-      operationId: loginPatient
+      summary: Logge dich als User ein
+      operationId: login
       responses:
         200:
           description: Erfolgreicher Login
         401:
           description: Sie sind nicht authorisiert
       requestBody:
-        description: Die Login-Daten des Patienten
+        description: Die Login-Daten des Nutzers
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PatientLogin"
+              $ref: "#/components/schemas/Login"
+
+  /register:
+    post:
+      tags:
+        - register
+      summary: Registeriere einen neuen Nutzer
+      operationId: register
+      responses:
+        200:
+          description: Erfolgreiche Registration
+        400:
+          description: Die Anfrage enthält Fehler
+      requestBody:
+        description: Die Registrierungs-Daten des Nutzers
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Registration"
 
 components:
   schemas:
-    PatientLogin:
-      description: Das Login-Objekt eines Patienten
+    Login:
+      description: Das Login-Objekt eines Nutzers
       type: object
       properties:
         username:
-          description: Der Benutzername oder die E-Mailadresse des Patienten
+          description: Der Benutzername oder die E-Mailadresse des Nutzers
           type: string
         password:
           description: Das Passwort als hash
@@ -46,3 +65,65 @@ components:
       required:
         - username
         - password
+    Registration:
+      description: Das Registrierungs-Objekt eines Nutzers
+      type: object
+      properties:
+        email:
+          description: Die E-Mailadresse des Nutzers
+          type: string
+        username:
+          description: Der Benutzername oder die E-Mailadresse des Nutzers
+          type: string
+        password:
+          description: Das Passwort als hash
+          type: string
+        confirmPassword:
+          description: Das Passwort als hash
+          type: string
+        firstname:
+          description: Der Nachname des Nutzers
+          type: string
+        secondname:
+          description: Der Vorname des Nutzers
+          type: string
+        gender:
+          description: Das Geschlecht des Nutzers
+          $ref: '#/components/schemas/Gender'
+        birthdate:
+          description: Das Geburtsdatum des Nutzers
+          type: date
+        userType:
+          description: Die Art des Nutzers
+          $ref: '#/components/schemas/UserType'
+        cancerPosition:
+          description: Die Position des Krebstumors
+          type: string
+        cancerSituation:
+          description: Die aktuelle Situation des Krankheitsverlaufs
+          type: string
+        cancerTreatment:
+          description: Die Art der letzten Behandlung des Krebstumors
+          type: string
+      required:
+        - email
+        - username
+        - password
+        - confirmPassword
+        - firstname
+        - secondname
+        - gender
+        - birthdate
+        - userType
+    UserType:
+      type: string
+      enum:
+        - user
+        - arzt
+        - arztHelfer
+    Gender:
+      type: string
+      enum:
+        - male
+        - female
+        - divers
