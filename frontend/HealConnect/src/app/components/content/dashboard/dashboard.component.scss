@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  gap: 30px;
+}
+
+mat-card {
+  background-color: var(--app-accent-color);
+}
+
+mat-card > img {
+  margin: 10px;
+}
+
+mat-card-content {
+  margin: 20px 0 0 0;
+}
+
+@media (max-width: 900px) {
+  :host {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  mat-card > img {
+    display: none;
+  }
+}
