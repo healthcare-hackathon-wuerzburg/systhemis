@@ -1,6 +1,6 @@
 ![HealConnect Logo](/docs/HealConnectLogo.png)
 
-## Problemstellung
+## Problem
 
 During the COVID-19 pandemic, cancer patients were harshly affected by the lockdown.
 Unable to visit doctors on demand and without the option to attend physical checkups,
@@ -133,9 +133,11 @@ As the application was developed in a hackathon, there are many features that ca
 - [How to create a GitHub Release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 - [Healthcare Hackathon Würzburg](https://www.healthcare-hackathon.info/hhwuerzburg)
 - [Universitätsklinikum Würzburg](https://www.ukw.de)
-- [SYSTHEMIS AG](https://systhemis.de/)
+- [SYSTHEMIS AG](https://systhemis.de)
+- [HNO-Klinik](https://www.ukw.de/hno-klinik)
 
 ## Colaborators:
 [<img alt="Healthcare Hackathon Würzburg Logo" src="./docs/HHWLogo.svg" height="100">](https://www.healthcare-hackathon.info/hhwuerzburg)
 [<img alt="[Universitätsklinikum Würzburg Logo" src="./docs/UKWLogo.svg" height="100">](https://www.healthcare-hackathon.info/hhwuerzburg)
-[<img alt="SYSTHEMIS AG Logo" src="./docs/SYSTHEMISLogo.png" height="100">](https://systhemis.de/)
+[<img alt="SYSTHEMIS AG Logo" src="./docs/SYSTHEMISLogo.png" height="100">](https://systhemis.de)
+[<img alt="HNO-Klinik Logo" src="./docs/HNOLogo.png" height="100">](https://www.ukw.de/hno-klinik)
