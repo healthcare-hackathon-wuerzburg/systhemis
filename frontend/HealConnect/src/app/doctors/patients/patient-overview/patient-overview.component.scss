@@ -1,0 +1,42 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+section {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-direction: row;
+}
+
+section > div {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+mat-card {
+  width: 20rem;
+  margin: 1rem 0 1rem 0;
+  background-color: var(--app-accent-color);
+}
+
+a {
+  margin-bottom: 0.5rem;
+}
+
+mat-card-content > img {
+  margin: 0 20px 0 0;
+}
+
+mat-card > mat-card-actions > a {
+  background-color: #D0D6B5;
+}
+
+mat-card-content {
+  margin: 20px 0 0 0;
+  display: flex;
+  align-items: center;
+}
