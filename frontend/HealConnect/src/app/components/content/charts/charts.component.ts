@@ -1,6 +1,6 @@
-import {Component, ViewChild} from '@angular/core';
-import {BaseChartDirective, NgChartsModule} from "ng2-charts";
-import {Chart, ChartConfiguration, ChartEvent, ChartOptions, ChartType} from "chart.js";
+import {Component} from '@angular/core';
+import {NgChartsModule} from "ng2-charts";
+import {ChartConfiguration, ChartOptions} from "chart.js";
 import {JournalService} from "../../../services/journal.service";
 
 @Component({
@@ -14,7 +14,8 @@ export class ChartsComponent {
   lineChartData: ChartConfiguration<'line'>['data'];
 
   public lineChartOptions: ChartOptions<'line'> = {
-    responsive: false,
+    responsive: true,
+    maintainAspectRatio: true,
     scales: {
       y: {
         min: 0,
