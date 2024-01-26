@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { HttpResponse, Registration, UserType } from './user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
 
@@ -14,69 +14,69 @@ export class UserService {
     {
       username: 'username@test.de',
       password: 'hallo123',
-      birthdate: "1965-02-15T23:00:00.000Z",
-      cancerPosition: "1",
-      cancerSituation: "2",
-      confirmPassword:"test",
-      email: "username@test.de",
-      firstname: "username",
-      gender: "male",
+      birthdate: '1965-02-15T23:00:00.000Z',
+      cancerPosition: '1',
+      cancerSituation: '2',
+      confirmPassword: 'test',
+      email: 'username@test.de',
+      firstname: 'username',
+      gender: 'Mann',
       infrared: false,
       medicin: false,
       operation: true,
       other: false,
-      secondname: "test",
+      secondname: 'test',
       userType: UserType.Patient,
     },
     {
       username: 'example_user@test.de',
       password: 'secret',
-      birthdate: "1970-06-03T23:00:00.000Z",
-      cancerPosition: "1",
-      cancerSituation: "2",
-      confirmPassword:"secret",
-      email: "example_user@test.de",
-      firstname: "Diana",
-      gender: "female",
+      birthdate: '1970-06-03T23:00:00.000Z',
+      cancerPosition: '1',
+      cancerSituation: '2',
+      confirmPassword: 'secret',
+      email: 'example_user@test.de',
+      firstname: 'Diana',
+      gender: 'Frau',
       infrared: false,
       medicin: false,
       operation: true,
       other: false,
-      secondname: "Tester",
+      secondname: 'Tester',
       userType: UserType.Patient,
     },
     {
       username: 'dr_jones@ukw.de',
       password: 'geheim',
-      birthdate: "1955-09-03T23:00:00.000Z",
-      cancerPosition: "1",
-      cancerSituation: "2",
-      confirmPassword:"geheim",
-      email: "dr_jones@ukw.de",
-      firstname: "Indiana",
-      gender: "male",
+      birthdate: '1955-09-03T23:00:00.000Z',
+      cancerPosition: '1',
+      cancerSituation: '2',
+      confirmPassword: 'geheim',
+      email: 'dr_jones@ukw.de',
+      firstname: 'Indiana',
+      gender: 'Mann',
       infrared: false,
       medicin: false,
       operation: true,
       other: false,
-      secondname: "Jones",
+      secondname: 'Jones',
       userType: UserType.Arzt,
     },
     {
       username: 'macgyver@systhemis.de',
       password: 'systhemisag',
-      birthdate: "1955-09-03T23:00:00.000Z",
-      cancerPosition: "1",
-      cancerSituation: "2",
-      confirmPassword:"systhemisag",
-      email: "macgyver@systhemis.de",
-      firstname: "Armand",
-      gender: "male",
+      birthdate: '1955-09-03T23:00:00.000Z',
+      cancerPosition: '1',
+      cancerSituation: '2',
+      confirmPassword: 'systhemisag',
+      email: 'macgyver@systhemis.de',
+      firstname: 'Armand',
+      gender: 'Mann',
       infrared: false,
       medicin: false,
       operation: true,
       other: false,
-      secondname: "MacGyver",
+      secondname: 'MacGyver',
       userType: UserType.Arzt,
     },
   ];
@@ -84,13 +84,12 @@ export class UserService {
   private registrations: BehaviorSubject<Registration[]> = new BehaviorSubject([] as Registration[]);
 
   constructor(private http: HttpClient) {
-    const lsRegistrations = localStorage.getItem("registrations");
+    const lsRegistrations = localStorage.getItem('registrations');
     let registrationList: Registration[] = [];
     if (lsRegistrations) {
       registrationList = JSON.parse(lsRegistrations);
     }
-      console.log(registrationList);
-      this.registrations.next( [...registrationList, ...this.knownUsers]);
+    this.registrations.next([...registrationList, ...this.knownUsers]);
   }
 
   getRegistrations() {
@@ -115,8 +114,8 @@ export class UserService {
   }
 
   register(value: Registration): Observable<any> {
-    this.registrations.next( [...this.registrations.value, value]);
-    localStorage.setItem("registrations", JSON.stringify(this.registrations));
+    this.registrations.next([...this.registrations.value, value]);
+    localStorage.setItem('registrations', JSON.stringify(this.registrations.value));
     return of({});
   }
 }
