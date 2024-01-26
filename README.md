@@ -43,14 +43,14 @@ Alternative:
 
 2) Using the correct npm and Node Version:
 
-   If you are using Node Version Manager, as described in Section ["Requirements"](#Requirements), 
+   If you are using Node Version Manager, as described in section ["Requirements"](#Requirements), 
  please run the following command first. This will install the correct Node and
  Npm version. Note that the script will ask you for administrative access to 
  finish the installation.
 
        `.\.setup\a-EnvVariable.bat`
 
-    If you are using a manual installation of Node and npm, please make sure you are using the versions described in the ["Requirements Section."](#Requirements)
+    If you are using a manual installation of Node and npm, please make sure you are using the versions described in the ["Requirements"](#Requirements) section.
 
 3) Navigate into the project directory (Assuming you cloned it into the default folder):
 
@@ -84,13 +84,12 @@ As a patient, you can:
 
 As a physician:
 - TODO: Aufnehmen wenn Alex so weit
-- Not available in the current version.
 
 ## Deployment
 
 In order to deploy the application, you will need a web server to host it. 
 We assume that you have access to both the web server's host directory and configuration.
-At the end of this Section, we include an example configuration for an NGINX-Server.
+At the end of this section, we include an example configuration for an NGINX-Server.
 
 1) Build the project using the following command:
 
@@ -130,16 +129,28 @@ server {
 
 ## Project Overview
 
-TODO:
-Describe how the project is structured. 
-Describe the architecture and the main components (if necessary) and the interaction between these components.
+The application is currently running completely locally in a browser
+without persistent data storage.
+As such, the architecture of the application is currently limited to a single-page
+progressive web app and its models.
+
+![System Architecture: A single web application with three models - an Authentication, Patient, and Physician Module.](/docs/Architecture-diagram.png)
+
+The workflow of the web application demands authentication via the Authentication Module upfront.
+Once the Authentication Module can provide an authenticated user and its roles,
+an automated redirection to the Patient or Physician Modules Dashboard takes place.
+
+The architecture can be extended with a backend hosted on a secure server with a persistent database,
+as well as an Administrator Module for authenticating users.
+
+More potential features can be found in the ["Further Steps"](#Further-Steps) section.
 
 ## How to Contribute
 
 If you want to contribute to the further development of the application,
 you may follow the steps below:
 
-1) Set up the repository on your local machine, as described in the ["Installation Section".](#Installation)
+1) Set up the repository on your local machine, as described in the ["Getting Started"](#Getting-Started) section.
 2) Work on a dedicated branch for your feature:
 
        `git checkout -b feature_name`
@@ -172,7 +183,7 @@ As the application was developed in a hackathon, there are many features that ca
 - [SYSTHEMIS AG](https://systhemis.de)
 - [HNO-Klinik](https://www.ukw.de/hno-klinik)
 
-## Colaborators:
+## Collaborators:
 [<img alt="Healthcare Hackathon Würzburg Logo" src="./docs/HHWLogo.svg" height="100">](https://www.healthcare-hackathon.info/hhwuerzburg)
 [<img alt="[Universitätsklinikum Würzburg Logo" src="./docs/UKWLogo.svg" height="100">](https://www.healthcare-hackathon.info/hhwuerzburg)
 [<img alt="SYSTHEMIS AG Logo" src="./docs/SYSTHEMISLogo.png" height="100">](https://systhemis.de)

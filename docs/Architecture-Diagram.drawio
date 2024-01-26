@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" modified="2024-01-26T12:22:02.579Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0" etag="QCFtW2Rbtqa0Ps1CDL5X" version="23.0.2" type="device">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+    <mxGraphModel dx="1050" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-29" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="20" width="570" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-1" value="&lt;div&gt;Heal-Connect Web Application&lt;/div&gt;" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="80" width="420" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-4" value="&lt;div&gt;Authentication Module&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="TSxpNs3qAdHEKsQu5cwl-1">
+          <mxGeometry x="50" y="95" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-23" value="&lt;div align=&quot;left&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;div&gt;&lt;h4&gt;Landing Page&lt;/h4&gt;&lt;/div&gt;&lt;/li&gt;&lt;li&gt;&lt;h4&gt;Login Page&lt;/h4&gt;&lt;/li&gt;&lt;li&gt;&lt;h4&gt;Registraton Page&lt;br&gt;&lt;/h4&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="TSxpNs3qAdHEKsQu5cwl-4">
+          <mxGeometry y="25" width="160" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-5" value="Physician Module" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="TSxpNs3qAdHEKsQu5cwl-1">
+          <mxGeometry x="240" y="170" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-25" value="&lt;div align=&quot;left&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;div&gt;&lt;h4&gt;Dashboard&lt;br&gt;&lt;/h4&gt;&lt;/div&gt;&lt;/li&gt;&lt;li&gt;&lt;h4&gt;Patient Overview&lt;/h4&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="TSxpNs3qAdHEKsQu5cwl-5">
+          <mxGeometry y="25" width="160" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-6" value="&lt;div&gt;Patient Module&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="TSxpNs3qAdHEKsQu5cwl-1">
+          <mxGeometry x="240" y="20" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-24" value="&lt;div align=&quot;left&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;div&gt;&lt;h4&gt;Dashboard&lt;br&gt;&lt;/h4&gt;&lt;/div&gt;&lt;/li&gt;&lt;li&gt;&lt;h4&gt;Journal&lt;br&gt;&lt;/h4&gt;&lt;/li&gt;&lt;li&gt;&lt;h4&gt;Charts&lt;br&gt;&lt;/h4&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="TSxpNs3qAdHEKsQu5cwl-6">
+          <mxGeometry y="25" width="160" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="TSxpNs3qAdHEKsQu5cwl-1" source="TSxpNs3qAdHEKsQu5cwl-4" target="TSxpNs3qAdHEKsQu5cwl-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="190" as="sourcePoint" />
+            <mxPoint x="200" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-20" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="TSxpNs3qAdHEKsQu5cwl-1" source="TSxpNs3qAdHEKsQu5cwl-4" target="TSxpNs3qAdHEKsQu5cwl-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="190" as="sourcePoint" />
+            <mxPoint x="200" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-22" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="TSxpNs3qAdHEKsQu5cwl-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="155" as="sourcePoint" />
+            <mxPoint x="50" y="154.86" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-13" value="&lt;div&gt;User&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="205" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-18" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TSxpNs3qAdHEKsQu5cwl-13" target="TSxpNs3qAdHEKsQu5cwl-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="220" as="sourcePoint" />
+            <mxPoint x="300" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TSxpNs3qAdHEKsQu5cwl-28" value="&lt;h1&gt;HealConnect Architecture&lt;/h1&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="10" width="410" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
