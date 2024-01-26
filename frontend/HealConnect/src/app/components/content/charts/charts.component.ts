@@ -18,7 +18,7 @@ export class ChartsComponent {
   fifthLineChartData: ChartConfiguration<'line'>['data'];
   sixthLineChartData: ChartConfiguration<'line'>['data'];
   seventhLineChartData: ChartConfiguration<'line'>['data'];
-  eigthLineChartData: ChartConfiguration<'line'>['data'];
+  eightLineChartData: ChartConfiguration<'line'>['data'];
   lineChartLegend = true;
   firstLineChartOptions: ChartOptions<'line'> = {};
   secondLineChartOptions: ChartOptions<'line'> = {};
@@ -53,18 +53,12 @@ export class ChartsComponent {
         {
           data: stateData,
           label: 'Befinden',
-          fill: true,
           tension: 0,
-          borderColor: 'black',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: physicalActivityData,
           label: 'körperliche Aktivität',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         }
       ]
     };
@@ -85,34 +79,22 @@ export class ChartsComponent {
         {
           data: nauseaData,
           label: 'Übelkeit',
-          fill: true,
           tension: 0,
-          borderColor: 'black',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: tiredData,
           label: 'Müdigkeit',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: mentalStressData,
           label: 'psychische Belastung',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: restrictedLivingData,
           label: 'Einschränkung in der Lebensqualität',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         }
       ]
     };
@@ -131,18 +113,12 @@ export class ChartsComponent {
         {
           data: cigarettesData,
           label: 'Zigarettenkonsum',
-          fill: true,
           tension: 0,
-          borderColor: 'black',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: alcoholData,
           label: 'Alkoholkonsum',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         }
       ]
     };
@@ -160,10 +136,7 @@ export class ChartsComponent {
         {
           data: weightData,
           label: 'Körpergewicht',
-          fill: true,
           tension: 0,
-          borderColor: 'black',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         }
       ]
     };
@@ -185,42 +158,27 @@ export class ChartsComponent {
         {
           data: headPainData,
           label: 'Kopf',
-          fill: true,
           tension: 0,
-          borderColor: 'black',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: nosePainData,
           label: 'Nase',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: mouthPainData,
           label: 'Mund',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: throatPainData,
           label: 'Rachen',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: neckPainData,
           label: 'Hals',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         }
       ]
     };
@@ -245,58 +203,37 @@ export class ChartsComponent {
         {
           data: swallowPainData,
           label: 'Schluckschmerz',
-          fill: true,
           tension: 0,
-          borderColor: 'black',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: mouthDrynessData,
           label: 'Mundtrockenheit',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: smellTastingIssuesData,
           label: 'Riech-/Schmeckstörung',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: swallowingFoodIssuesData,
           label: 'Problem mit festen Speisen',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: swallowingDrinkIssuesData,
           label: 'Problem mit Flüssigkeiten',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: swallowUpIssuesData,
           label: 'Verschlucken',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: feedingTubeData,
           label: 'künstliche Ernährung (Magensonde)',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         }
       ]
     };
@@ -317,34 +254,22 @@ export class ChartsComponent {
         {
           data: breathlessnessCalmData,
           label: 'Luftnot in Ruhe',
-          fill: true,
           tension: 0,
-          borderColor: 'black',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: breathlessnessActivityData,
           label: 'Luftnot bei Belastung',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: coughingData,
           label: 'Husten',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: hoarsenessData,
           label: 'Heiserkeit',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         }
       ]
     };
@@ -359,40 +284,28 @@ export class ChartsComponent {
     const bleedMouthData = entries.map((e) => e.symptoms.bleeding.bleedMouth);
     const bleedThroatData = entries.map((e) => e.symptoms.bleeding.bleedThroat);
     const bleedDeepData = entries.map((e) => e.symptoms.bleeding.bleedDeep);
-    this.eigthLineChartData = {
+    this.eightLineChartData = {
       labels: labels,
       datasets: [
         {
           data: bleedNoseData,
           label: 'Nase',
-          fill: true,
           tension: 0,
-          borderColor: 'black',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: bleedMouthData,
           label: 'Mund',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: bleedThroatData,
           label: 'obere Atemwege',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         },
         {
           data: bleedDeepData,
           label: 'untere Atemwege',
-          fill: true,
           tension: 0,
-          borderColor: 'grey',
-          backgroundColor: 'rgba(255,0,0,0.3)'
         }
       ]
     };
