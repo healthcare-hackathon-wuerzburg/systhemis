@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatList, MatListItem } from '@angular/material/list';
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
-import { MatAnchor, MatButton } from '@angular/material/button';
+import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MenuService } from './menu.service';
 import { NgFor } from '@angular/common';
@@ -16,6 +16,7 @@ import { NgFor } from '@angular/common';
     RouterLink,
     MatIcon,
     MatButton,
+    MatIconButton,
     MatMenu,
     MatMenuTrigger,
     MatMenuItem,
