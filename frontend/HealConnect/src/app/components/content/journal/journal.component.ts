@@ -60,9 +60,12 @@ export class JournalComponent {
   breathForm: UntypedFormGroup;
   bleedingForm: UntypedFormGroup;
   stepperOrientation: Observable<StepperOrientation> = of('horizontal');
+  maxDate = new Date();
+  minDate = new Date();
 
   constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver, private journalService: JournalService,
               private router: Router) {
+    this.minDate.setDate(this.minDate.getDate() - 4);
     this.handleStepperBreakpoint();
     this.overviewForm = this.fb.group({
       entryDate: [new Date(), Validators.required],
