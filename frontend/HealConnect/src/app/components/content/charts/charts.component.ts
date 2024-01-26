@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NgChartsModule} from "ng2-charts";
 import {ChartConfiguration, ChartOptions} from "chart.js";
 import {JournalService} from "../../../services/journal.service";
+import {JournalEntry} from "../../shared/models/journal-entry";
 
 @Component({
   selector: 'app-charts',
@@ -30,20 +31,20 @@ export class ChartsComponent {
   eightLineChartOptions: ChartOptions<'line'> = {};
 
   constructor(private journalService: JournalService) {
-    this.setupFirstGraph();
-    this.setupSecondGraph();
-    this.setupThirdGraph();
-    this.setupFourthGraph();
-    this.setupFifthGraph();
-    this.setupSixthGraph();
-    this.setupSeventhGraph();
-    this.setupEightGraph();
-  }
-
-  private setupFirstGraph() {
-    this.firstLineChartOptions = this.setupLineChartOptions('Überblick');
     const username = localStorage.getItem('username');
     const entries = this.journalService.getLastJournalEntries(username);
+    this.setupFirstGraph(entries);
+    this.setupSecondGraph(entries);
+    this.setupThirdGraph(entries);
+    this.setupFourthGraph(entries);
+    this.setupFifthGraph(entries);
+    this.setupSixthGraph(entries);
+    this.setupSeventhGraph(entries);
+    this.setupEightGraph(entries);
+  }
+
+  private setupFirstGraph(entries: JournalEntry[]) {
+    this.firstLineChartOptions = this.setupLineChartOptions('Überblick');
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const stateData = entries.map((e) => e.overview.state);
     const physicalActivityData = entries.map((e) => e.overview.physicalActivity);
@@ -64,10 +65,8 @@ export class ChartsComponent {
     };
   }
 
-  private setupSecondGraph() {
+  private setupSecondGraph(entries: JournalEntry[]) {
     this.secondLineChartOptions = this.setupLineChartOptions('???');
-    const username = localStorage.getItem('username');
-    const entries = this.journalService.getLastJournalEntries(username);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const nauseaData = entries.map((e) => e.overview.nausea);
     const tiredData = entries.map((e) => e.overview.tired);
@@ -100,10 +99,8 @@ export class ChartsComponent {
     };
   }
 
-  private setupThirdGraph() {
+  private setupThirdGraph(entries: JournalEntry[]) {
     this.thirdLineChartOptions = this.setupLineChartOptions('Konsum');
-    const username = localStorage.getItem('username');
-    const entries = this.journalService.getLastJournalEntries(username);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const cigarettesData = entries.map((e) => e.overview.smokedCigarettes);
     const alcoholData = entries.map((e) => e.overview.alcohol);
@@ -124,10 +121,8 @@ export class ChartsComponent {
     };
   }
 
-  private setupFourthGraph() {
+  private setupFourthGraph(entries: JournalEntry[]) {
     this.fourthLineChartOptions = this.setupLineChartOptions('Gewicht');
-    const username = localStorage.getItem('username');
-    const entries = this.journalService.getLastJournalEntries(username);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const weightData = entries.map((e) => e.overview.weight);
     this.fourthLineChartData = {
@@ -142,10 +137,8 @@ export class ChartsComponent {
     };
   }
 
-  private setupFifthGraph() {
+  private setupFifthGraph(entries: JournalEntry[]) {
     this.fifthLineChartOptions = this.setupLineChartOptions('Schmerzen');
-    const username = localStorage.getItem('username');
-    const entries = this.journalService.getLastJournalEntries(username);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const headPainData = entries.map((e) => e.symptoms.pain.headPain);
     const nosePainData = entries.map((e) => e.symptoms.pain.nosePain);
@@ -184,10 +177,8 @@ export class ChartsComponent {
     };
   }
 
-  private setupSixthGraph() {
+  private setupSixthGraph(entries: JournalEntry[]) {
     this.sixthLineChartOptions = this.setupLineChartOptions('Schluckprobleme');
-    const username = localStorage.getItem('username');
-    const entries = this.journalService.getLastJournalEntries(username);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const swallowPainData = entries.map((e) => e.symptoms.swallow.swallowPain);
     const mouthDrynessData = entries.map((e) => e.symptoms.swallow.mouthDrynres);
@@ -239,10 +230,8 @@ export class ChartsComponent {
     };
   }
 
-  private setupSeventhGraph() {
+  private setupSeventhGraph(entries: JournalEntry[]) {
     this.seventhLineChartOptions = this.setupLineChartOptions('Atem- und Sprechstörung');
-    const username = localStorage.getItem('username');
-    const entries = this.journalService.getLastJournalEntries(username);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const breathlessnessCalmData = entries.map((e) => e.symptoms.breath.breathlessnessCalm);
     const breathlessnessActivityData = entries.map((e) => e.symptoms.breath.breathlessnessActivity);
@@ -275,10 +264,8 @@ export class ChartsComponent {
     };
   }
 
-  private setupEightGraph() {
+  private setupEightGraph(entries: JournalEntry[]) {
     this.eightLineChartOptions = this.setupLineChartOptions('Blutungen');
-    const username = localStorage.getItem('username');
-    const entries = this.journalService.getLastJournalEntries(username);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const bleedNoseData = entries.map((e) => e.symptoms.bleeding.bleedNose);
     const bleedMouthData = entries.map((e) => e.symptoms.bleeding.bleedMouth);
