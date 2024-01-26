@@ -136,6 +136,6 @@ As the application was developed in a hackathon, there are many features that ca
 - [SYSTHEMIS AG](https://systhemis.de/)
 
 ## Colaborators:
-[![Healthcare Hackathon Würzburg Logo](/docs/HHWLogo.svg)](https://www.healthcare-hackathon.info/hhwuerzburg)
-[![Universitätsklinikum Würzburg Logo](/docs/UKWLogo.svg)](https://www.ukw.de)
-[![SYSTHEMIS AG Logo](/docs/SYSTHEMISLogo.png)](https://systhemis.de/)
+[<img alt="Healthcare Hackathon Würzburg Logo" src="./docs/HHWLogo.svg" height="100">](https://www.healthcare-hackathon.info/hhwuerzburg)
+[<img alt="[Universitätsklinikum Würzburg Logo" src="./docs/UKWLogo.svg" height="100">](https://www.healthcare-hackathon.info/hhwuerzburg)
+[<img alt="SYSTHEMIS AG Logo" src="./docs/SYSTHEMISLogo.png" height="100">](https://systhemis.de/)
