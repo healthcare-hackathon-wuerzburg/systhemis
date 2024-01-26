@@ -4,16 +4,19 @@ import { confirmFieldValidator } from '../../shared/validator/CustomFormValidato
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatOption, MatSelect } from '@angular/material/select';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, DatePipe, NgForOf, NgIf } from '@angular/common';
 import { MatStepperModule, StepperOrientation } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { UserService } from '../../../services/user.service';
 import { map, Observable, of } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButton } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CancerService } from '../../../services/cancer.service';
+import { CancerSituation, CancerType } from '../../../services/cancer.model';
 
 @Component({
   selector: 'app-register',
@@ -31,7 +34,9 @@ import { MatButton } from '@angular/material/button';
     MatRadioModule,
     AsyncPipe,
     RouterModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    DatePipe,
+    NgForOf,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
@@ -48,9 +53,18 @@ export class RegisterComponent {
   cancerTreatment: FormGroup;
   contactDataStep: FormGroup;
 
+  cancerTypes: CancerType[] = [];
+  cancerSituations: CancerSituation[] = [];
+
   public constructor(private fb: FormBuilder,
                      private userService: UserService,
-                     private breakpointObserver: BreakpointObserver) {
+                     public cancerService: CancerService,
+                     private breakpointObserver: BreakpointObserver,
+                     private snackBar: MatSnackBar,
+                     private router: Router) {
+    this.cancerTypes = this.cancerService.getCancerTypes();
+    this.cancerSituations = this.cancerService.getCancerSituations();
+
     this.handleStepperBreakpoint();
     this.userTypeStep = fb.group({
       userType: ['', Validators.required]
@@ -82,7 +96,7 @@ export class RegisterComponent {
 
     this.userTypeStep.get('userType')
       ?.valueChanges.subscribe((value) => {
-      if (value == 'user') {
+      if (value == 'Patient') {
         this.isPatientRegistration = true;
       } else {
         this.isPatientRegistration = false;
@@ -101,7 +115,13 @@ export class RegisterComponent {
     this.userService.register(completeValues)
       .subscribe({
         next: (value) => {
+          if (this.isPatientRegistration) {
+            this.snackBar.open("Du hast dich erfolgreich registriert. Du kannst direkt anfangen deine Journals zu schreiben.",'Ok', {duration: 2000})
+          } else {
+            this.snackBar.open("Du hast dich erfolgreich registriert.", 'Ok', {duration: 2000})
+          }
           this.registerIsFinished = true;
+          this.router.navigate(["/login"]);
         }
       });
   }

@@ -17,8 +17,8 @@ import {BreakpointObserver} from "@angular/cdk/layout";
 import {map, Observable, of} from "rxjs";
 import { MatAnchor, MatButton } from '@angular/material/button';
 import {MatIcon} from "@angular/material/icon";
-import {JournalService} from "../../../services/journal.service";
-import { Router, RouterLink } from '@angular/router';
+import {JournalService} from "../../../../services/journal.service";
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-journal',
@@ -49,10 +49,10 @@ import { Router, RouterLink } from '@angular/router';
     RouterLink,
     MatAnchor,
   ],
-  templateUrl: './journal.component.html',
-  styleUrl: './journal.component.scss'
+  templateUrl: './journal-edit.component.html',
+  styleUrl: './journal-edit.component.scss'
 })
-export class JournalComponent {
+export class JournalEditComponent {
   overviewForm: UntypedFormGroup;
   symptomsForm: UntypedFormGroup;
   painForm: UntypedFormGroup;
@@ -64,9 +64,25 @@ export class JournalComponent {
   minDate = new Date();
 
   constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver, private journalService: JournalService,
-              private router: Router) {
+              private router: Router, private activatedRoute: ActivatedRoute) {
+    this.setupForms();
+    this.initEntry();
     this.minDate.setDate(this.minDate.getDate() - 4);
     this.handleStepperBreakpoint();
+  }
+
+  private initEntry() {
+    this.activatedRoute.data.subscribe((data) => {
+      this.overviewForm.patchValue({
+        ...data.journalEntry.overview
+      })
+      this.symptomsForm.patchValue({
+        ...data.journalEntry.symptoms
+      });
+    })
+  }
+
+  private setupForms() {
     this.overviewForm = this.fb.group({
       entryDate: [new Date(), Validators.required],
       state: [0, Validators.required],
@@ -107,7 +123,6 @@ export class JournalComponent {
       bleedThroat: [0, Validators.required],
       bleedDeep: [0, Validators.required],
     });
-
     this.symptomsForm = this.fb.group({
       pain: this.painForm,
       swallow: this.swallowForm,
@@ -129,6 +144,6 @@ export class JournalComponent {
   saveJournalEntry() {
     this.overviewForm.controls.entryDate.value.setHours(0, 0, 0, 0);
     this.journalService.addJournalEntry({overview: this.overviewForm.value, symptoms: this.symptomsForm.value});
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['journal']);
   }
 }

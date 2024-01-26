@@ -1,0 +1,23 @@
+<div>
+    <a mat-button [routerLink]="'/dashboard'" >
+        <mat-icon>arrow_back_ios</mat-icon>
+        Zurück
+    </a>
+</div>
+<section>
+    <div>
+        <mat-card *ngFor="let entry of entries">
+            <mat-card-header>
+                <mat-card-title>Eintrag: {{ entry.overview.entryDate | date }}</mat-card-title>
+                <mat-card-subtitle>Befinden: {{ entry.overview.state}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions align="end">
+                <a mat-icon-button [routerLink]="'/journal/edit'">
+                    <mat-icon>edit</mat-icon>
+                </a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</section>
+
+<a mat-raised-button color="primary" [routerLink]="'/journal/edit'">Tagebucheintrag erstellen</a>

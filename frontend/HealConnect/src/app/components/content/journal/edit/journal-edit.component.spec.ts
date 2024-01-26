@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JournalComponent } from './journal.component';
+import { JournalEditComponent } from './journal-edit.component';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 
 describe('JournalComponent', () => {
-  let component: JournalComponent;
-  let fixture: ComponentFixture<JournalComponent>;
+  let component: JournalEditComponent;
+  let fixture: ComponentFixture<JournalEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JournalComponent, NoopAnimationsModule],
+      imports: [JournalEditComponent, NoopAnimationsModule],
       providers: [provideNativeDateAdapter(), provideRouter([])]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JournalComponent);
+    fixture = TestBed.createComponent(JournalEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
