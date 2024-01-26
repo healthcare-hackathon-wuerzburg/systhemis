@@ -14,3 +14,26 @@ section > div {
 div > button:first-child {
   margin: 0 20px 0 0;
 }
+
+.finaloverview {
+  display: flex;
+  flex-direction: column;
+}
+
+.finaloverview > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.finaloverview > div > div:first-child {
+  width: 30%;
+}
+
+@media (max-width: 900px) {
+  .finaloverview{
+    font-size: x-small;
+  }
+  .finaloverview > div > div:first-child {
+    width: 59%;
+  }
+}
