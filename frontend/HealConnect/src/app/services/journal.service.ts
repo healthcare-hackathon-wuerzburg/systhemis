@@ -14,9 +14,10 @@ export class JournalService {
     this.journalEntriesMap.set(entryIdentifier, journalEntry);
   }
 
-  getLastJournalEntries(username: string | null): JournalEntry[] {
+  getAllJournalEntriesForUser() {
+    const username = localStorage.getItem('username');
     const entries: JournalEntry[] = [];
-    if(!username) {
+    if (!username) {
       return entries;
     }
 
@@ -25,6 +26,22 @@ export class JournalService {
         entries.push(this.journalEntriesMap.get(key)!);
       }
     }
-    return entries.sort((a, b) => a.overview.entryDate.getTime() - b.overview.entryDate.getTime()).slice(entries.length - 7);
+    return entries;
+  }
+
+  getJournalEntryByDate(date: Date): JournalEntry {
+    const username = localStorage.getItem('username');
+    const currentDate = new Date().setHours(0, 0, 0, 0);
+    const entryIdentifier = username + '+' + currentDate;
+    if (this.journalEntriesMap.has(entryIdentifier)) {
+      return this.journalEntriesMap.get(entryIdentifier)!;
+    }
+    return {} as JournalEntry;
+  }
+
+  getLastJournalEntries(): JournalEntry[] {
+    const entries = this.getAllJournalEntriesForUser();
+    return entries.sort(
+      (a, b) => a.overview.entryDate.getTime() - b.overview.entryDate.getTime()).slice(entries.length - 7);
   }
 }

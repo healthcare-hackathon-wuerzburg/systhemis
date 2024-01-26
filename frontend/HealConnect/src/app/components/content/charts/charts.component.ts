@@ -31,8 +31,7 @@ export class ChartsComponent {
   eightLineChartOptions: ChartOptions<'line'> = {};
 
   constructor(private journalService: JournalService) {
-    const username = localStorage.getItem('username');
-    const entries = this.journalService.getLastJournalEntries(username);
+    const entries = this.journalService.getLastJournalEntries();
     this.setupFirstGraph(entries);
     this.setupSecondGraph(entries);
     this.setupThirdGraph(entries);
@@ -303,7 +302,7 @@ export class ChartsComponent {
       responsive: true,
       plugins: {
         title: {
-          display: true,
+          display: !!title,
           text: title,
         }
       },
