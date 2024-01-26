@@ -2,36 +2,66 @@
 
 ## Problemstellung
 
-Eine Progressive Web App die es Patienten mit Kopf- und Nackenkrebs erlaubt,
-während ihrer Behandlung und Folgebetreuung, ihre Symptome zu tracken und
-mit ihrem Arzt zu teilen. 
+During the COVID-19 pandemic, cancer patients were harshly affected by the lockdown.
+Unable to visit doctors on demand and without the option to attend physical checkups,
+a modern solution for communication with their preferred practitioner was needed.
 
 ## Idea
 
-Describe how you are going to solve this problem
+A conducted study showed that despite the high average age of head and neck cancer 
+patients, they are open to a digital solution.
+
+So, we developed an app for the German market. For ease of use, we decided to develop
+a progressive web app. This allows for use on both home computers and mobile devices.
+
+The app includes a symptom diary, an information center, and allows a patient to share 
+their entered data with their practitioner. This can help both the patient and the
+practitioner schedule appointments on demand.
 
 ## Getting Started
 
-This section describes the requirements of the project and how to get started.
+To allow further development on this project, please follow the steps in the sections
+["Requirements"](#Requirements) and ["Installation."](#Installation)
 
 ### Requirements
 
-List all requirements here
+Please make sure that you have already installed the following Programs.
 
-- Adoptium JDK Version 21.0.2
-- Maven
-- Node & npm oder NVM
-- 
+- Node Version Manager
+
+Alternative:
+- Node v20.11.0 
+- Npm 10.2.4
 
 ### Installation
 
-Describe, how to install the project, like:
+1) Clone the repository:
 
-1) clone the repository via `git clone ...`
-2) install dependencies via `npm install`
-3) start the dev server via `npm run dev`
-4) suddenly a miracle appears
-5) open your webbrowser on http://localhost:3000
+       `git clone https://github.com/healthcare-hackathon-wuerzburg/systhemis.git`
+
+2) Using the correct npm and Node Version:
+
+   If you are using Node Version Manager, as described in Section ["Requirements"](#Requirements), 
+ please run the following command first. This will install the correct Node and
+ Npm version. Note that the script will ask you for administrative access to 
+ finish the installation.
+
+       `.\.setup\a-EnvVariable.bat`
+
+    If you are using a manual installation of Node and npm, please make sure you are using the versions described in the ["Requirements Section."](#Requirements)
+
+3) Navigate into the project directory (Assuming you cloned it into the default folder):
+
+       `cd systhemis/frontend`
+
+4) Install dependencies:
+
+       `npm install`
+
+5) Start the development server:
+
+       `npm run dev`
+6) Open your web browser and visit http://localhost:4200.
 
 ## How to use the Project 
 
