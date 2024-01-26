@@ -6,6 +6,7 @@ mat-list {
 #menubutton {
   display: none;
   background-color: var(--app-main-color);
+  transform: scale(1.5);
 }
 
 mat-menu {
