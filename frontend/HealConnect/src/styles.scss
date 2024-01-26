@@ -1,8 +1,6 @@
 @use '@angular/material' as mat;
 @include mat.core();
 
-//@import 'theme';
-
 :root {
   --app-main-color: #879ab8;
   --app-accent-color: #B2BED2;
