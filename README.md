@@ -83,20 +83,56 @@ As a patient, you can:
 - Analyze your journal entries with a variety of graphical charts.
 
 As a physician:
+- TODO: Aufnehmen wenn Alex so weit
 - Not available in the current version.
 
 ## Deployment
 
-TODO: DEFINE!
-Describe, how the project can be deployed (if necessary).
-How can i spin up a docker container that executes something, 
-how can i move the containers to a server, 
-how can I use the trained ML model, ... (if applicable in your project context).
+In order to deploy the application, you will need a web server to host it. 
+We assume that you have access to both the web server's host directory and configuration.
+At the end of this Section, we include an example configuration for an NGINX-Server.
+
+1) Build the project using the following command:
+
+       `ng build`
+2) Copy everything within the output directory (dist/heal-connect/) to your 
+web server's host directory. 
+The name and location of the host directory are dependent on the specific web server.
+Please refer to your web server's documentation for more information.
+3) Configure your web server to redirect requests for missing files to index.html.
+Since this application is a single-page application, your web server needs
+to redirect any requests back to index.html. Once again, 
+this configuration is dependent on your specific web server, 
+so please consult its documentation.
+4) Test your deployment by opening your web server's URL in any browser.
+If you cannot access any pages beyond the landing page, 
+your configuration may be incorrect.
+
+As NGINX is the most common production server, we include an example configuration for it here.
+This configuration assumes you have provided a certificate for HTTPS encryption; 
+your locations and certificate names may vary. 
+Please note that this example is specific to NGINX and may not work on all web servers.
+
+```
+server {
+    listen 443 ssl;
+    server_name localhost;
+    ssl_certificate ca.crt;
+    ssl_certificate_key ca.key;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+}
+```
 
 ## Project Overview
 
 TODO:
-Describe how the project is structured. Describe the architecture and the main components (if necessary) and the interaction between these components.
+Describe how the project is structured. 
+Describe the architecture and the main components (if necessary) and the interaction between these components.
 
 ## How to Contribute
 
