@@ -95,10 +95,10 @@
         </mat-slider>
       </section>
       <section>
-        <mat-label>Wie viel wiegst du?</mat-label>
-        <mat-slider [min]="0" [max]="200" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
-          <input matSliderThumb formControlName="weight"/>
-        </mat-slider>
+        <mat-form-field>
+          <mat-label>Wie viel wiegst du?</mat-label>
+          <input formControlName="weight" matInput type="number">
+        </mat-form-field>
       </section>
     </form>
   </mat-step>
