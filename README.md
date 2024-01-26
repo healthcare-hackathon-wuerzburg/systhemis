@@ -1,4 +1,4 @@
-# HealConnect
+![HealConnect Logo](/docs/HealConnectLogo.png)
 
 ## Problemstellung
 
@@ -11,8 +11,10 @@ a modern solution for communication with their preferred practitioner was needed
 A conducted study showed that despite the high average age of head and neck cancer 
 patients, they are open to a digital solution.
 
-So, we developed an app for the German market. For ease of use, we decided to develop
-a progressive web app. This allows for use on both home computers and mobile devices.
+So, we developed an app for the German market with a strong focus on accessibility.
+For ease of use, we decided to develop a progressive web app. 
+This allows for use on both home computers and mobile devices, 
+ensuring a seamless experience for all users, including those with disabilities.
 
 The app includes a symptom diary, an information center, and allows a patient to share 
 their entered data with their practitioner. This can help both the patient and the
@@ -65,31 +67,75 @@ Alternative:
 
 ## How to use the Project 
 
-Describe, how someone can work with the developed application / library. How can I access basic functionality, ...
+The basic functionality of the program is secured behind a user login. 
+The application comes with pre-registered users for each group. 
+To quickly get an overview of the application's functionality, 
+please log in using one of the following users:
+
+| Username         | Password   | Role      |
+|------------------|------------|-----------|
+| username@test.de | hallo123   | Patient   |
+| dr_jones@ukw.de  | geheim     | Physician |
+
+As a patient, you can:
+- Access a variety of information in the form of PDFs.
+- Write journals for your overall mood, feelings, and symptoms.
+- Analyze your journal entries with a variety of graphical charts.
+
+As a physician:
+- Not available in the current version.
 
 ## Deployment
 
-Describe, how the project can be deployed (if necessary). How can i spin up a docker container that executes something, how can i move the containers to a server, how can I use the trained ML model, ... (if applicable in your project context).
+TODO: DEFINE!
+Describe, how the project can be deployed (if necessary).
+How can i spin up a docker container that executes something, 
+how can i move the containers to a server, 
+how can I use the trained ML model, ... (if applicable in your project context).
 
 ## Project Overview
 
+TODO:
 Describe how the project is structured. Describe the architecture and the main components (if necessary) and the interaction between these components.
 
 ## How to Contribute
 
-Describe, how new team members can contribute to the existing repository, like:
+If you want to contribute to the further development of the application,
+you may follow the steps below:
 
-1) clone the repository
-2) work on a dedicated branch for your feature `git branch -b feature_name`
-3) create a pull request for the feature and document the changes accordingly
-4) you have to write tests in order to get your PR merged
-5) send changes against `main` branch
+1) Set up the repository on your local machine, as described in the ["Installation Section".](#Installation)
+2) Work on a dedicated branch for your feature:
 
-## Additional Information
+       `git checkout -b feature_name`
 
-Are there any additional information that are important to understand how this code works?
+3) Once your feature is complete, create a pull request for the feature and document the changes accordingly.
+   - Please remember to update this readme if necessary.
+4) Please make sure that your code has some unit tests to ease the review process.
+5) Send changes against the `main` branch.
+
+## Further Steps
+
+As the application was developed in a hackathon, there are many features that can still be implemented. Some of these include:
+
+- An Administration User Role
+- A Physician's Assistant User Role
+- Proof of a medical license for a doctor's registration
+- Check and approval of a doctor's registrations by administrators
+- Check and approval of a physician's assistant registration by a doctor
+- Communication between patient and physician via chat
+- Communication between patient and physician via call
+- Permanent Data Storage
+- Centralized Backend
 
 ## Useful links:
 
 - [Most common Git commands](https://rogerdudler.github.io/git-guide/index.de.html)
 - [How to create a GitHub Release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+- [Healthcare Hackathon Würzburg](https://www.healthcare-hackathon.info/hhwuerzburg)
+- [Universitätsklinikum Würzburg](https://www.ukw.de)
+- [SYSTHEMIS AG](https://systhemis.de/)
+
+## Colaborators:
+[![Healthcare Hackathon Würzburg Logo](/docs/HHWLogo.svg)](https://www.healthcare-hackathon.info/hhwuerzburg)
+[![Universitätsklinikum Würzburg Logo](/docs/UKWLogo.svg)](https://www.ukw.de)
+[![SYSTHEMIS AG Logo](/docs/SYSTHEMISLogo.png)](https://systhemis.de/)
