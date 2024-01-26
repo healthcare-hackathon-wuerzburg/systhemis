@@ -310,7 +310,7 @@ export class ChartsComponent {
       scales: {
         y: {
           min: 0,
-          max: 10,
+          max: 100,
           ticks: {
             stepSize: 1
           }

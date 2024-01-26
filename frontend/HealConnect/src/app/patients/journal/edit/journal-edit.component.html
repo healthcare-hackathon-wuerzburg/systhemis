@@ -84,7 +84,7 @@
       </section>
       <section>
         <mat-label>Wie viele Zigaretten hast du geraucht?</mat-label>
-        <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
+        <mat-slider [min]="0" [max]="100" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
           <input matSliderThumb formControlName="smokedCigarettes"/>
         </mat-slider>
       </section>
@@ -226,7 +226,7 @@
         </div>
       </section>
       <section>
-        <mat-label>Luftnote bei körperlicher Belastung</mat-label>
+        <mat-label>Luftnot bei körperlicher Belastung</mat-label>
         <div>
           <p>Keine</p>
           <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true"
