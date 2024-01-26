@@ -3,11 +3,14 @@ import {NgChartsModule} from "ng2-charts";
 import {ChartConfiguration, ChartOptions} from "chart.js";
 import { JournalEntry } from '../../shared/models/journal-entry';
 import { JournalService } from '../../services/journal.service';
+import {MatAnchor} from "@angular/material/button";
+import {MatIcon} from "@angular/material/icon";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-charts',
   standalone: true,
-  imports: [NgChartsModule],
+  imports: [NgChartsModule, MatAnchor, MatIcon, RouterLink],
   templateUrl: './charts.component.html',
   styleUrl: './charts.component.scss'
 })
@@ -43,7 +46,7 @@ export class ChartsComponent {
   }
 
   private setupFirstGraph(entries: JournalEntry[]) {
-    this.firstLineChartOptions = this.setupLineChartOptions('Allgemeines');
+    this.firstLineChartOptions = this.setupLineChartOptions('Allgemeines', true);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const stateData = entries.map((e) => e.overview.state);
     const physicalActivityData = entries.map((e) => e.overview.physicalActivity);
@@ -65,7 +68,7 @@ export class ChartsComponent {
   }
 
   private setupSecondGraph(entries: JournalEntry[]) {
-    this.secondLineChartOptions = this.setupLineChartOptions(null);
+    this.secondLineChartOptions = this.setupLineChartOptions(null, true);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const nauseaData = entries.map((e) => e.overview.nausea);
     const tiredData = entries.map((e) => e.overview.tired);
@@ -99,7 +102,7 @@ export class ChartsComponent {
   }
 
   private setupThirdGraph(entries: JournalEntry[]) {
-    this.thirdLineChartOptions = this.setupLineChartOptions(null);
+    this.thirdLineChartOptions = this.setupLineChartOptions(null, false);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const cigarettesData = entries.map((e) => e.overview.smokedCigarettes);
     const alcoholData = entries.map((e) => e.overview.alcohol);
@@ -121,7 +124,7 @@ export class ChartsComponent {
   }
 
   private setupFourthGraph(entries: JournalEntry[]) {
-    this.fourthLineChartOptions = this.setupLineChartOptions(null);
+    this.fourthLineChartOptions = this.setupLineChartOptions(null, false);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const weightData = entries.map((e) => e.overview.weight);
     this.fourthLineChartData = {
@@ -137,7 +140,7 @@ export class ChartsComponent {
   }
 
   private setupFifthGraph(entries: JournalEntry[]) {
-    this.fifthLineChartOptions = this.setupLineChartOptions('Schmerzen');
+    this.fifthLineChartOptions = this.setupLineChartOptions('Schmerzen', true);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const headPainData = entries.map((e) => e.symptoms.pain.headPain);
     const nosePainData = entries.map((e) => e.symptoms.pain.nosePain);
@@ -177,7 +180,7 @@ export class ChartsComponent {
   }
 
   private setupSixthGraph(entries: JournalEntry[]) {
-    this.sixthLineChartOptions = this.setupLineChartOptions('Schluckprobleme');
+    this.sixthLineChartOptions = this.setupLineChartOptions('Schluckprobleme', true);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const swallowPainData = entries.map((e) => e.symptoms.swallow.swallowPain);
     const mouthDrynessData = entries.map((e) => e.symptoms.swallow.mouthDrynres);
@@ -230,7 +233,7 @@ export class ChartsComponent {
   }
 
   private setupSeventhGraph(entries: JournalEntry[]) {
-    this.seventhLineChartOptions = this.setupLineChartOptions('Atem- und Sprechstörung');
+    this.seventhLineChartOptions = this.setupLineChartOptions('Atem- und Sprechstörung', true);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const breathlessnessCalmData = entries.map((e) => e.symptoms.breath.breathlessnessCalm);
     const breathlessnessActivityData = entries.map((e) => e.symptoms.breath.breathlessnessActivity);
@@ -264,7 +267,7 @@ export class ChartsComponent {
   }
 
   private setupEightGraph(entries: JournalEntry[]) {
-    this.eightLineChartOptions = this.setupLineChartOptions('Blutungen');
+    this.eightLineChartOptions = this.setupLineChartOptions('Blutungen', true);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const bleedNoseData = entries.map((e) => e.symptoms.bleeding.bleedNose);
     const bleedMouthData = entries.map((e) => e.symptoms.bleeding.bleedMouth);
@@ -297,26 +300,46 @@ export class ChartsComponent {
     };
   }
 
-  private setupLineChartOptions(title: string | null): ChartOptions<'line'> {
-    return  {
-      responsive: true,
-      plugins: {
-        title: {
-          display: !!title,
-          text: title ? title : '',
-        }
-      },
-      maintainAspectRatio: true,
-      scales: {
-        y: {
-          min: 0,
-          max: 100,
-          ticks: {
-            stepSize: 1
+  private setupLineChartOptions(title: string | null, limitedYAxis: boolean): ChartOptions<'line'> {
+    if (limitedYAxis) {
+      return  {
+        responsive: true,
+        plugins: {
+          title: {
+            display: !!title,
+            text: title ? title : '',
+          }
+        },
+        maintainAspectRatio: true,
+        scales: {
+          y: {
+            min: 1,
+            max: 10,
+            ticks: {
+              stepSize: 1
+            }
           }
         }
-      }
-    };
+      };
+    } else {
+      return  {
+        responsive: true,
+        plugins: {
+          title: {
+            display: !!title,
+            text: title ? title : '',
+          }
+        },
+        maintainAspectRatio: true,
+        scales: {
+          y: {
+            ticks: {
+              stepSize: 1
+            }
+          }
+        }
+      };
+    }
   }
 
   private buildDateLabel(date: Date) {
