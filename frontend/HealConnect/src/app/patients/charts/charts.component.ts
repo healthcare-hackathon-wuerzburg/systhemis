@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {NgChartsModule} from "ng2-charts";
 import {ChartConfiguration, ChartOptions} from "chart.js";
-import {JournalService} from "../../../services/journal.service";
-import {JournalEntry} from "../../shared/models/journal-entry";
+import { JournalEntry } from '../../shared/models/journal-entry';
+import { JournalService } from '../../services/journal.service';
 
 @Component({
   selector: 'app-charts',

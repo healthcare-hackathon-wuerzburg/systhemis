@@ -4,7 +4,7 @@ import { MatDatepicker, MatDatepickerInput, MatDatepickerToggle } from '@angular
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { NgIf } from '@angular/common';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../services/user.service';
 import { Router, RouterModule } from '@angular/router';
 import {MatAnchor, MatButton} from '@angular/material/button';
 

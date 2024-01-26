@@ -1,13 +1,14 @@
 import {Routes} from '@angular/router';
-import {LoginComponent} from './components/content/login/login.component';
-import {RegisterComponent} from './components/content/register/register.component';
-import {WelcomeComponent} from './welcome/welcome.component';
-import {JournalEditComponent} from "./components/content/journal/edit/journal-edit.component";
-import {DashboardComponent} from './components/content/dashboard/dashboard.component';
-import {InfoComponent} from './components/content/info/info.component';
-import {ChartsComponent} from "./components/content/charts/charts.component";
-import {OverviewComponent} from "./components/content/journal/overview/overview.component";
-import {journalEditResolver} from "./components/content/journal/edit/journal-edit.resolver";
+import {LoginComponent} from './home/login/login.component';
+import {RegisterComponent} from './home/register/register.component';
+import {WelcomeComponent} from './home/welcome/welcome.component';
+
+import { InfoComponent } from './patients/info/info.component';
+import { DashboardComponent } from './patients/dashboard/dashboard.component';
+import { ChartsComponent } from './patients/charts/charts.component';
+import { JournalEditComponent } from './patients/journal/edit/journal-edit.component';
+import { journalEditResolver } from './patients/journal/edit/journal-edit.resolver';
+import { OverviewComponent } from './patients/journal/overview/overview.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},

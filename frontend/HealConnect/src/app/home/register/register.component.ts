@@ -8,15 +8,15 @@ import { AsyncPipe, DatePipe, NgForOf, NgIf } from '@angular/common';
 import { MatStepperModule, StepperOrientation } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../services/user.service';
 import { map, Observable, of } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Router, RouterModule } from '@angular/router';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButton } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CancerService } from '../../../services/cancer.service';
-import { CancerSituation, CancerType } from '../../../services/cancer.model';
+import { CancerService } from '../../services/cancer.service';
+import { CancerSituation, CancerType } from '../../services/cancer.model';
 
 @Component({
   selector: 'app-register',

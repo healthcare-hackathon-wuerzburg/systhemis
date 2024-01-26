@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {JournalEntry} from "../components/shared/models/journal-entry";
+import {JournalEntry} from "../shared/models/journal-entry";
 
 
 @Injectable({

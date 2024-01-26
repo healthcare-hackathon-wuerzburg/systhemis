@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {JournalService} from "../../../../services/journal.service";
-import {JournalEntry} from "../../../shared/models/journal-entry";
+import {JournalService} from "../../../services/journal.service";
 import {
   MatCard,
   MatCardActions,
@@ -13,6 +12,7 @@ import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatAnchor, MatButton, MatIconAnchor, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {RouterLink} from "@angular/router";
+import { JournalEntry } from '../../../shared/models/journal-entry';
 
 @Component({
   selector: 'app-overview',

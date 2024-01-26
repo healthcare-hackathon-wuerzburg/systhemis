@@ -17,8 +17,8 @@ import {BreakpointObserver} from "@angular/cdk/layout";
 import {map, Observable, of} from "rxjs";
 import { MatAnchor, MatButton } from '@angular/material/button';
 import {MatIcon} from "@angular/material/icon";
-import {JournalService} from "../../../../services/journal.service";
-import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { JournalService } from '../../../services/journal.service';
 
 @Component({
   selector: 'app-journal',
