@@ -6,8 +6,9 @@ import { MatInput } from '@angular/material/input';
 import { NgIf } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { Router, RouterModule } from '@angular/router';
-import {MatAnchor, MatButton} from '@angular/material/button';
+import { MatAnchor, MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { UserType } from '../../services/user.model';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +35,11 @@ export class LoginComponent {
       this.userService.login(this.loginForm.value)
         .subscribe({
           next: (value) => {
-            this.router.navigate(['dashboard']);
+            if (value.val.userType === UserType.Arzt || value.val.userType === UserType.Arzthelfer) {
+              this.router.navigate(['patients']);
+            } else {
+              this.router.navigate(['dashboard']);
+            }
           },
           error: (error) => {
             if(error.status == 401) {

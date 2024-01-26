@@ -1,0 +1,20 @@
+<div>
+  <a mat-button routerLink="/dashboard">
+    <mat-icon>arrow_back_ios</mat-icon>
+    Zurück
+  </a>
+</div>
+<h3>Übersicht der Patienten</h3>
+<section>
+  <div>
+    <mat-card *ngFor="let entry of patients$ | async">
+      <mat-card-header>
+        <mat-card-title>Patient: {{ entry.firstname }} {{entry.secondname}}</mat-card-title>
+        <mat-card-subtitle>Geburtsdatum: {{entry.birthdate | date:"dd.MM.yyyy" }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions align="end">
+        <a mat-icon-button><mat-icon>person</mat-icon></a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>
