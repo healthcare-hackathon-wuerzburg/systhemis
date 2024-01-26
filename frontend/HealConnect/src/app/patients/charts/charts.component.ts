@@ -43,7 +43,7 @@ export class ChartsComponent {
   }
 
   private setupFirstGraph(entries: JournalEntry[]) {
-    this.firstLineChartOptions = this.setupLineChartOptions('Überblick');
+    this.firstLineChartOptions = this.setupLineChartOptions('Allgemeines');
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const stateData = entries.map((e) => e.overview.state);
     const physicalActivityData = entries.map((e) => e.overview.physicalActivity);
@@ -65,7 +65,7 @@ export class ChartsComponent {
   }
 
   private setupSecondGraph(entries: JournalEntry[]) {
-    this.secondLineChartOptions = this.setupLineChartOptions('???');
+    this.secondLineChartOptions = this.setupLineChartOptions(null);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const nauseaData = entries.map((e) => e.overview.nausea);
     const tiredData = entries.map((e) => e.overview.tired);
@@ -99,7 +99,7 @@ export class ChartsComponent {
   }
 
   private setupThirdGraph(entries: JournalEntry[]) {
-    this.thirdLineChartOptions = this.setupLineChartOptions('Konsum');
+    this.thirdLineChartOptions = this.setupLineChartOptions(null);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const cigarettesData = entries.map((e) => e.overview.smokedCigarettes);
     const alcoholData = entries.map((e) => e.overview.alcohol);
@@ -121,7 +121,7 @@ export class ChartsComponent {
   }
 
   private setupFourthGraph(entries: JournalEntry[]) {
-    this.fourthLineChartOptions = this.setupLineChartOptions('Gewicht');
+    this.fourthLineChartOptions = this.setupLineChartOptions(null);
     const labels = entries.map((e) => this.buildDateLabel(e.overview.entryDate));
     const weightData = entries.map((e) => e.overview.weight);
     this.fourthLineChartData = {
@@ -297,13 +297,13 @@ export class ChartsComponent {
     };
   }
 
-  private setupLineChartOptions(title: string): ChartOptions<'line'> {
+  private setupLineChartOptions(title: string | null): ChartOptions<'line'> {
     return  {
       responsive: true,
       plugins: {
         title: {
           display: !!title,
-          text: title,
+          text: title ? title : '',
         }
       },
       maintainAspectRatio: true,
