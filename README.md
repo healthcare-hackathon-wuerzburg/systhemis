@@ -16,18 +16,18 @@ For ease of use, we decided to develop a progressive web app.
 This allows for use on both home computers and mobile devices, 
 ensuring a seamless experience for all users, including those with disabilities.
 
-The app includes a symptom diary, an information center, and allows a patient to share 
-their entered data with their practitioner. This can help both the patient and the
-practitioner schedule appointments on demand.
+The app includes an information center and a symptom diary which allow patients to share 
+their entered data with their practitioner. This can help both, the patient and the
+practitioner to schedule appointments on demand.
 
 ## Getting Started
 
-To allow further development on this project, please follow the steps in the sections
+To engage in further development on this project, please follow the steps in the sections
 ["Requirements"](#Requirements) and ["Installation."](#Installation)
 
 ### Requirements
 
-Please make sure that you have already installed the following Programs.
+Please make sure that you have already installed the following programs.
 
 - Node Version Manager
 
@@ -79,7 +79,7 @@ please log in using one of the following users:
 
 As a patient, you can:
 - Access a variety of information in the form of PDFs.
-- Write journals for your overall mood, feelings, and symptoms.
+- Write journals for your overall mood, feelings and symptoms.
 - Analyze your journal entries with a variety of graphical charts.
 
 As a physician:
@@ -129,9 +129,7 @@ server {
 
 ## Project Overview
 
-The application is currently running completely locally in a browser
-without persistent data storage.
-As such, the architecture of the application is currently limited to a single-page
+The architecture of the application is currently limited to a single-page
 progressive web app and its models.
 
 ![System Architecture: A single web application with three models - an Authentication, Patient, and Physician Module.](/docs/Architecture-diagram.png)
@@ -164,15 +162,15 @@ you may follow the steps below:
 
 As the application was developed in a hackathon, there are many features that can still be implemented. Some of these include:
 
-- An Administration User Role
-- A Physician's Assistant User Role
+- An administration user role
+- A physician's assistant user role
 - Proof of a medical license for a doctor's registration
 - Check and approval of a doctor's registrations by administrators
 - Check and approval of a physician's assistant registration by a doctor
 - Communication between patient and physician via chat
 - Communication between patient and physician via call
-- Permanent Data Storage
-- Centralized Backend
+- Permanent data storage
+- Centralized backend
 
 ## Useful links:
 
