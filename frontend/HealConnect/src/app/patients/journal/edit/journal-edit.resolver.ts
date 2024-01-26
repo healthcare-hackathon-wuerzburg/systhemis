@@ -1,10 +1,13 @@
 import {ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot} from "@angular/router";
-import {JournalService} from "../../../services/journal.service";
+import {JournalEntry} from "../../../shared/models/journal-entry";
 import {inject} from "@angular/core";
-import { JournalEntry } from '../../../shared/models/journal-entry';
+import {JournalService} from "../../../services/journal.service";
 
 export const journalEditResolver: ResolveFn<JournalEntry> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot): JournalEntry => {
-  return inject(JournalService).getJournalEntryByDate(new Date());
+  if (route.paramMap.has('data')) {
+    return inject(JournalService).getJournalEntryByDate(route.paramMap.get('data'));
+  }
+  return inject(JournalService).getJournalEntryByDate(null);
 }

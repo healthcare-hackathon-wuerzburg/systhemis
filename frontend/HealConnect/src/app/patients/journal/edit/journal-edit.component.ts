@@ -19,6 +19,7 @@ import { MatAnchor, MatButton } from '@angular/material/button';
 import {MatIcon} from "@angular/material/icon";
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { JournalService } from '../../../services/journal.service';
+import {JournalEntry} from "../../../shared/models/journal-entry";
 
 @Component({
   selector: 'app-journal',
@@ -73,13 +74,17 @@ export class JournalEditComponent {
 
   private initEntry() {
     this.activatedRoute.data.subscribe((data) => {
-      this.overviewForm.patchValue({
-        ...data.journalEntry.overview
-      })
-      this.symptomsForm.patchValue({
-        ...data.journalEntry.symptoms
-      });
+      this.patchForms(data.journalEntry);
     })
+  }
+
+  private patchForms(journalEntry: JournalEntry) {
+    this.overviewForm.patchValue({
+      ...journalEntry.overview
+    })
+    this.symptomsForm.patchValue({
+      ...journalEntry.symptoms
+    });
   }
 
   private setupForms() {

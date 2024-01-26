@@ -29,9 +29,9 @@ export class JournalService {
     return entries;
   }
 
-  getJournalEntryByDate(date: Date): JournalEntry {
+  getJournalEntryByDate(date: string | null): JournalEntry {
     const username = localStorage.getItem('username');
-    const currentDate = new Date().setHours(0, 0, 0, 0);
+    const currentDate = date ? date : new Date().setHours(0, 0, 0, 0);
     const entryIdentifier = username + '+' + currentDate;
     if (this.journalEntriesMap.has(entryIdentifier)) {
       return this.journalEntriesMap.get(entryIdentifier)!;

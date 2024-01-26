@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {JournalService} from "../../../services/journal.service";
 import {
   MatCard,
@@ -12,7 +12,7 @@ import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatAnchor, MatButton, MatIconAnchor, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {RouterLink} from "@angular/router";
-import { JournalEntry } from '../../../shared/models/journal-entry';
+import {JournalEntry} from '../../../shared/models/journal-entry';
 
 @Component({
   selector: 'app-overview',
@@ -42,9 +42,12 @@ export class OverviewComponent {
 
   constructor(private journalService: JournalService) {
     this.entries = this.journalService.getAllJournalEntriesForUser();
+    this.entries.sort(
+      (a, b) => a.overview.entryDate.getTime() - b.overview.entryDate.getTime()).slice(this.entries.length - 7);
+
   }
 
   buildDateLabel(date: Date) {
-    return date.toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: 'numeric' });
+    return date.toLocaleDateString('de-DE', {weekday: 'short', day: '2-digit', month: 'numeric'});
   }
 }
