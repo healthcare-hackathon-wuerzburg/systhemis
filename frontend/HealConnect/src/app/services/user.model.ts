@@ -10,8 +10,8 @@ export type Registration = {
   secondname: string;
   gender: string;
   birthdate: string;
-  cancerPosition: string;
-  cancerSituation: string;
+  cancerPosition: number;
+  cancerSituation: number;
   email: string;
   username: string;
   password: string;

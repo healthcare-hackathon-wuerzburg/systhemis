@@ -59,4 +59,18 @@
       </button>
     </mat-card-actions>
   </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Voice Modulator</mat-card-title>
+      <mat-card-subtitle>Infobroschüre als Pdf</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content><img ngSrc="assets/Voice-Modulator.png" width="160" height="100"/>
+      Echtzeit Voice Modulator für Patienten nach Laryngektomie
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-icon-button (click)="openFile('Voice-Modulator.pdf')">
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </section>
