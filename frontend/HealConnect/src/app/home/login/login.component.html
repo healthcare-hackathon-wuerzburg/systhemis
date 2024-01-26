@@ -3,7 +3,7 @@
 
   <form class="flex-column" [formGroup]="loginForm">
     <mat-form-field>
-      <mat-label>E-Mail:</mat-label>
+      <mat-label>Benutzername:</mat-label>
       <input formControlName="username" matInput type="text">
       <mat-error *ngIf="usernameControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
       <mat-error *ngIf="usernameControl.errors?.required">Du musst eine E-Mail eingeben</mat-error>

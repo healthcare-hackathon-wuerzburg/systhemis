@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { HttpResponse, Registration, UserType } from './user.model';
 
 @Injectable({
@@ -81,16 +81,20 @@ export class UserService {
     },
   ];
 
-  private registrations: Registration[] = [];
+  private registrations: BehaviorSubject<Registration[]> = new BehaviorSubject([] as Registration[]);
 
   constructor(private http: HttpClient) {
     const lsRegistrations = localStorage.getItem("registrations");
+    let registrationList: Registration[] = [];
     if (lsRegistrations) {
-      this.registrations = JSON.parse(lsRegistrations);
+      registrationList = JSON.parse(lsRegistrations);
     }
-    if (this.registrations) {
-      this.registrations = [...this.registrations, ...this.knownUsers];
-    }
+      console.log(registrationList);
+      this.registrations.next( [...registrationList, ...this.knownUsers]);
+  }
+
+  getRegistrations() {
+    return this.registrations;
   }
 
   isLoggedIn(): boolean {
@@ -98,8 +102,10 @@ export class UserService {
   }
 
   login(value: { username: string, password: string }): Observable<HttpResponse<Registration>> {
-    const foundRegistration = this.registrations.find(entry => entry.email === value.username && entry.password === value.password);
-
+    const currentRegistrations = this.registrations.value;
+    console.log(currentRegistrations);
+    const foundRegistration = currentRegistrations.find(entry => entry.username === value.username && entry.password === value.password);
+    console.log(foundRegistration);
     if (foundRegistration) {
       localStorage.setItem('username', foundRegistration.username);
       this.loggedInUser = foundRegistration;
@@ -109,7 +115,7 @@ export class UserService {
   }
 
   register(value: Registration): Observable<any> {
-    this.registrations = [...this.registrations, value];
+    this.registrations.next( [...this.registrations.value, value]);
     localStorage.setItem("registrations", JSON.stringify(this.registrations));
     return of({});
   }
