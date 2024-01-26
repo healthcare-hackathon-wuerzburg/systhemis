@@ -12,6 +12,12 @@ section {
   gap: 30px;
 }
 
+section:nth-child(2) {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
 mat-card {
   background-color: var(--app-accent-color);
 }
