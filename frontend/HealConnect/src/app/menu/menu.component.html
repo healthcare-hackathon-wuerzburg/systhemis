@@ -1,7 +1,7 @@
 <nav id="menu">
   <mat-list>
     <mat-list-item *ngFor="let menumodel of menuService.getMenuModel()">
-      <a [routerLink]="menumodel.link">{{menumodel.label}}</a>
+      <a mat-button [routerLink]="menumodel.link">{{menumodel.label}}</a>
     </mat-list-item>
   </mat-list>
 </nav>

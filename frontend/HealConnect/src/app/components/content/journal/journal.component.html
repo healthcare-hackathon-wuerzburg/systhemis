@@ -1,15 +1,22 @@
+
+<div>
+  <a mat-button routerLink="/dashboard" >
+    <mat-icon>arrow_back_ios</mat-icon>
+    Zurück
+  </a>
+</div>
+<h3>Tagebuch</h3>
 <mat-stepper [linear]="true" [orientation]="(stepperOrientation | async)!">
   <mat-step [stepControl]="overviewForm" label="Übersicht">
     <form class="flex-column" [formGroup]="overviewForm">
-      <h3>Journal</h3>
-      <mat-form-field>
+      <mat-form-field id="journaldate">
         <mat-label>Datum</mat-label>
         <input matInput formControlName="entryDate" [matDatepicker]="picker" (focus)="picker.open()">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <h3>Überblick</h3>
+      <h4>Überblick</h4>
       <section>
         <mat-label>Wie fühlst du dich?</mat-label>
         <div>
@@ -98,7 +105,7 @@
   </mat-step>
   <mat-step [stepControl]="symptomsForm" label="Symptome">
     <form [formGroup]="painForm">
-      <h3>Schmerzen in Ruhe</h3>
+      <h4>Schmerzen in Ruhe</h4>
       <section>
         <mat-label>Kopfschmerzen</mat-label>
         <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
@@ -131,7 +138,7 @@
       </section>
     </form>
     <form [formGroup]="swallowForm">
-      <h3>Probleme beim Schlucken</h3>
+      <h4>Probleme beim Schlucken</h4>
       <section>
         <mat-label>Schmerzen beim Schlucken</mat-label>
         <mat-slider [min]="0" [max]="10" step="1" [discrete]="true" [showTickMarks]="true" [displayWith]="formatLabel">
@@ -207,7 +214,7 @@
       </section>
     </form>
     <form [formGroup]="breathForm">
-      <h3>Probleme beim Atmen und Sprechen</h3>
+      <h4>Probleme beim Atmen und Sprechen</h4>
       <section>
         <mat-label>Luftnot in Ruhe</mat-label>
         <div>
@@ -257,7 +264,7 @@
       </section>
     </form>
     <form [formGroup]="bleedingForm">
-      <h3>Blutungen</h3>
+      <h4>Blutungen</h4>
       <section>
         <mat-label>aus der Nase</mat-label>
         <div>
@@ -305,7 +312,7 @@
     </form>
   </mat-step>
 </mat-stepper>
-<button mat-flat-button (click)="saveJournalEntry()">
+<button mat-flat-button color="primary" (click)="saveJournalEntry()">
   Eintrag speichern
   <mat-icon>save</mat-icon>
 </button>

@@ -8,7 +8,7 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { NgOptimizedImage } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
 
@@ -33,7 +33,14 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 })
 export class InfoComponent {
 
+  constructor(private router: Router) {
+  }
+
   openFile(url: string) {
     window.open(`/assets/${url}`);
+  }
+
+  onBack() {
+    this.router.navigate(['/', 'dashboard'])
   }
 }

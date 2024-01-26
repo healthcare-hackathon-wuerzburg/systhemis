@@ -13,6 +13,7 @@ import { map, Observable, of } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +24,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInput,
     MatSelect,
     MatOption,
+    MatButton,
     NgIf,
     MatStepperModule,
     MatDatepickerModule,

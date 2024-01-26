@@ -12,13 +12,13 @@ import {MatSlider, MatSliderModule, MatSliderThumb} from "@angular/material/slid
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatDivider} from "@angular/material/divider";
-import {MatStep, MatStepper, StepperOrientation} from "@angular/material/stepper";
+import { MatStep, MatStepper, MatStepperNext, StepperOrientation } from '@angular/material/stepper';
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {map, Observable, of} from "rxjs";
-import {MatButton} from "@angular/material/button";
+import { MatAnchor, MatButton } from '@angular/material/button';
 import {MatIcon} from "@angular/material/icon";
 import {JournalService} from "../../../services/journal.service";
-import {Router} from "@angular/router";
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-journal',
@@ -44,7 +44,10 @@ import {Router} from "@angular/router";
     MatStep,
     MatStepper,
     MatButton,
-    MatIcon
+    MatIcon,
+    MatStepperNext,
+    RouterLink,
+    MatAnchor,
   ],
   templateUrl: './journal.component.html',
   styleUrl: './journal.component.scss'

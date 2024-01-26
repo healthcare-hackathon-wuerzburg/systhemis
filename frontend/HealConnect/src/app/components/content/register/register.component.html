@@ -1,139 +1,164 @@
 <div class="flex-column">
-  <h2> Registrieren </h2>
+  <h3> Registrieren </h3>
 
   <mat-stepper [linear]="true" [orientation]="(stepperOrientation | async)!">
     <mat-step [stepControl]="userTypeStep" label="Willkommen">
-      <span>Willkommen. Bist du ein Arzt oder ein Patient?</span>
-      <form class="flex-column" [formGroup]="userTypeStep">
-        <mat-form-field>
-          <mat-label>Benutzerart:</mat-label>
-          <mat-select id="userType" formControlName="userType">
-            <mat-option value="user">Patient</mat-option>
-            <mat-option value="arzt">Arzt</mat-option>
-            <mat-option value="arztHelfer">Arzt-Helfer</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </form>
-      <button mat-button matStepperNext>Weiter</button>
+      <section>
+        <div>Willkommen. Bist du ein Arzt oder ein Patient?</div>
+        <form class="flex-column" [formGroup]="userTypeStep">
+          <mat-form-field>
+            <mat-label>Benutzerart:</mat-label>
+            <mat-select id="userType" formControlName="userType">
+              <mat-option value="user">Patient</mat-option>
+              <mat-option value="arzt">Arzt</mat-option>
+              <mat-option value="arztHelfer">Arzt-Helfer</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" matStepperNext>Weiter</button>
+      </section>
     </mat-step>
     <mat-step [stepControl]="personDataStep" label="Wer bist du?">
-      <span>Erzähle uns etwas über dich.</span>
-      <form class="flex-column" [formGroup]="personDataStep">
-        <mat-form-field>
-          <mat-label>Vorname:</mat-label>
-          <input formControlName="firstname" matInput type="text">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Nachname:</mat-label>
-          <input formControlName="secondname" matInput type="text">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Geschlecht:</mat-label>
-          <mat-select id="gender" formControlName="gender">
-            <mat-option value="female">Frau</mat-option>
-            <mat-option value="male">Mann</mat-option>
-            <mat-option value="other">Divers</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Geburtsdatum</mat-label>
-          <input matInput formControlName="birthdate" [matDatepicker]="picker" (focus)="picker.open()">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Zurück</button>
-          <button mat-button matStepperNext>Weiter</button>
-        </div>
-      </form>
+      <section>
+        <div>Erzähle uns etwas über dich.</div>
+        <form class="flex-column" [formGroup]="personDataStep">
+          <mat-form-field>
+            <mat-label>Vorname:</mat-label>
+            <input formControlName="firstname" matInput type="text">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Nachname:</mat-label>
+            <input formControlName="secondname" matInput type="text">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Geschlecht:</mat-label>
+            <mat-select id="gender" formControlName="gender">
+              <mat-option value="female">Frau</mat-option>
+              <mat-option value="male">Mann</mat-option>
+              <mat-option value="other">Divers</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Geburtsdatum</mat-label>
+            <input matInput formControlName="birthdate" [matDatepicker]="picker" (focus)="picker.open()">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperPrevious>Zurück</button>
+            <button mat-raised-button color="primary" matStepperNext>Weiter</button>
+          </div>
+        </form>
+      </section>
     </mat-step>
     <ng-container *ngIf="isPatientRegistration">
       <mat-step [stepControl]="cancerDataStep" label="Wer bist du?">
-        <span>
-          Liebe{{genderValue == "male" ? 'r' : ''}} {{ firstnameValue }}, <br>
-          damit du mit deiner Krebserkrankung möglichst gut betreut werden kannst,
-          beantworte bitte folgende Fragen.
-        </span>
-        <form class="flex-column" [formGroup]="cancerDataStep">
-          <label id="cancer-position-label">Wo genau wurde dein Kopf-Hals-Krebs am ehesten festgestellt?</label>
-          <mat-radio-group aria-labelledby="cancer-position-label"
-                           formControlName="cancerPosition"
-                           class="flex-column">
-            <mat-radio-button value="1">Nase/Nasennebenhöhlen</mat-radio-button>
-            <mat-radio-button value="2">Mundhöhle</mat-radio-button>
-            <mat-radio-button value="3">Rachen</mat-radio-button>
-            <mat-radio-button value="4">Kehlkopf</mat-radio-button>
-            <mat-radio-button value="5">Speicheldrüsen</mat-radio-button>
-            <mat-radio-button value="6">Krebs mit unbekanntem Ursprung (CUP)</mat-radio-button>
-            <mat-radio-button value="7">Ich bin mir nicht sicher.</mat-radio-button>
-          </mat-radio-group>
-          <label id="cancer-situation-label">Was beschreibt deine aktuelle Krankheitssituation am besten?</label>
-          <mat-radio-group aria-labelledby="cancer-situation-label"
-                           formControlName="cancerSituation"
-                           class="flex-column">
-             <mat-radio-button value="1">Mein Krebs wurde kürzlich festgestellt und wird aktuell oder bald behandelt.</mat-radio-button>
-             <mat-radio-button value="2">Mein Krebs wurde erfolgreich behandelt und ich bin in der Nachsorge.</mat-radio-button>
-             <mat-radio-button value="3">Mein Krebs ist wiedergekehrt bzw. hat gestreut und wird ggf. erneut behandelt.</mat-radio-button>
-          </mat-radio-group>
-          <section class="example-section" [formGroup]="cancerTreatment">
-            <label id="cancer-treatment-label">Wie wurde bzw. wird dein Krebs behandelt (Mehrfachnennung möglich)?</label>
-            <p><mat-checkbox formControlName="operation">Operation</mat-checkbox></p>
-            <p><mat-checkbox formControlName="infrared">Bestrahlung</mat-checkbox></p>
-            <p><mat-checkbox formControlName="medicin">Medikamentöse Therapie (z.B. Chemotherapie, Immuntherapie)</mat-checkbox></p>
-            <p><mat-checkbox formControlName="other">Sonstiges</mat-checkbox></p>
-          </section>
+        <section>
           <div>
-            <button mat-button matStepperPrevious>Zurück</button>
-            <button mat-button matStepperNext>Weiter</button>
+            Liebe{{ genderValue == "male" ? 'r' : '' }} {{ firstnameValue }}, <br>
+            damit du mit deiner Krebserkrankung möglichst gut betreut werden kannst,
+            beantworte bitte folgende Fragen.
           </div>
-        </form>
+          <form class="flex-column" [formGroup]="cancerDataStep">
+            <label id="cancer-position-label">Wo genau wurde dein Kopf-Hals-Krebs am ehesten festgestellt?</label>
+            <mat-radio-group aria-labelledby="cancer-position-label"
+                             formControlName="cancerPosition"
+                             class="flex-column">
+              <mat-radio-button value="1">Nase/Nasennebenhöhlen</mat-radio-button>
+              <mat-radio-button value="2">Mundhöhle</mat-radio-button>
+              <mat-radio-button value="3">Rachen</mat-radio-button>
+              <mat-radio-button value="4">Kehlkopf</mat-radio-button>
+              <mat-radio-button value="5">Speicheldrüsen</mat-radio-button>
+              <mat-radio-button value="6">Krebs mit unbekanntem Ursprung (CUP)</mat-radio-button>
+              <mat-radio-button value="7">Ich bin mir nicht sicher.</mat-radio-button>
+            </mat-radio-group>
+            <label id="cancer-situation-label">Was beschreibt deine aktuelle Krankheitssituation am besten?</label>
+            <mat-radio-group aria-labelledby="cancer-situation-label"
+                             formControlName="cancerSituation"
+                             class="flex-column">
+              <mat-radio-button value="1">Mein Krebs wurde kürzlich festgestellt und wird aktuell oder bald behandelt.
+              </mat-radio-button>
+              <mat-radio-button value="2">Mein Krebs wurde erfolgreich behandelt und ich bin in der Nachsorge.
+              </mat-radio-button>
+              <mat-radio-button value="3">Mein Krebs ist wiedergekehrt bzw. hat gestreut und wird ggf. erneut
+                behandelt.
+              </mat-radio-button>
+            </mat-radio-group>
+            <section class="example-section" [formGroup]="cancerTreatment">
+              <label id="cancer-treatment-label">Wie wurde bzw. wird dein Krebs behandelt (Mehrfachnennung
+                möglich)?</label>
+              <p>
+                <mat-checkbox formControlName="operation">Operation</mat-checkbox>
+              </p>
+              <p>
+                <mat-checkbox formControlName="infrared">Bestrahlung</mat-checkbox>
+              </p>
+              <p>
+                <mat-checkbox formControlName="medicin">Medikamentöse Therapie (z.B. Chemotherapie, Immuntherapie)
+                </mat-checkbox>
+              </p>
+              <p>
+                <mat-checkbox formControlName="other">Sonstiges</mat-checkbox>
+              </p>
+            </section>
+            <div>
+              <button mat-raised-button matStepperPrevious>Zurück</button>
+              <button mat-raised-button color="primary" matStepperNext>Weiter</button>
+            </div>
+          </form>
+        </section>
       </mat-step>
     </ng-container>
     <mat-step [stepControl]="contactDataStep" label="Kontaktdaten">
-      <span> Wie können wir dich in Zukunft erreichen? </span>
-      <form class="flex-column" [formGroup]="contactDataStep">
-        <mat-form-field>
-          <mat-label>E-Mail:</mat-label>
-          <input formControlName="email" matInput type="text">
-          <mat-error *ngIf="emailControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
-          <mat-error *ngIf="emailControl.errors?.required">Du musst eine E-Mail eingeben</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Benutzername:</mat-label>
-          <input formControlName="username" matInput type="text">
-          <mat-error *ngIf="usernameControl.errors?.required">Du musst einen Username angeben</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Passwort:</mat-label>
-          <input formControlName="password" matInput type="password">
-          <mat-error *ngIf="passwordControl.invalid">Du musst ein Passwort eingeben</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Passwort Bestätigen:</mat-label>
-          <input formControlName="confirmPassword" matInput type="password">
-          <mat-error *ngIf="confirmPasswordControl.errors?.required">Du musst ihr Passwort bestätigen</mat-error>
-        </mat-form-field>
-        <mat-error *ngIf="formGroupError?.confirmFailed">Die Passwörter stimmen nicht überein</mat-error>
-        <div>
-          <button mat-button matStepperPrevious>Zurück</button>
-          <button mat-button matStepperNext>Weiter</button>
-        </div>
-      </form>
+      <section>
+        <div> Wie können wir dich in Zukunft erreichen?</div>
+        <form class="flex-column" [formGroup]="contactDataStep">
+          <mat-form-field>
+            <mat-label>E-Mail:</mat-label>
+            <input formControlName="email" matInput type="text">
+            <mat-error *ngIf="emailControl.errors?.email">Der eingegebene Wert ist keine valide E-Mail</mat-error>
+            <mat-error *ngIf="emailControl.errors?.required">Du musst eine E-Mail eingeben</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Benutzername:</mat-label>
+            <input formControlName="username" matInput type="text">
+            <mat-error *ngIf="usernameControl.errors?.required">Du musst einen Username angeben</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Passwort:</mat-label>
+            <input formControlName="password" matInput type="password">
+            <mat-error *ngIf="passwordControl.invalid">Du musst ein Passwort eingeben</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Passwort Bestätigen:</mat-label>
+            <input formControlName="confirmPassword" matInput type="password">
+            <mat-error *ngIf="confirmPasswordControl.errors?.required">Du musst ihr Passwort bestätigen</mat-error>
+          </mat-form-field>
+          <mat-error *ngIf="formGroupError?.confirmFailed">Die Passwörter stimmen nicht überein</mat-error>
+          <div>
+            <button mat-raised-button matStepperPrevious>Zurück</button>
+            <button mat-raised-button color="primary" matStepperNext>Weiter</button>
+          </div>
+        </form>
+      </section>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
-      <span>Du bist fertig.</span>
-      <ng-container *ngIf="registerIsFinished">
-        <span>Du hast dich erfolgreich registriert. Du kannst direkt anfangen deine Journals zu schreiben.</span>
-        <a [routerLink]="'/login'">Jetzt Anmelden.</a>
-      </ng-container>
-      <ng-container *ngIf="!registerIsFinished">
-        <div>
-          <button mat-button matStepperPrevious>Zurück</button>
-          <button mat-button [disabled]="!contactDataStep.valid"
-                  (click)="sendRegistration()">Registrieren</button>
-        </div>
-      </ng-container>
+      <section>
+        <div>Du bist fertig.</div>
+        <ng-container *ngIf="registerIsFinished">
+          <span>Du hast dich erfolgreich registriert. Du kannst direkt anfangen deine Journals zu schreiben.</span>
+          <a [routerLink]="'/login'">Jetzt Anmelden.</a>
+        </ng-container>
+        <ng-container *ngIf="!registerIsFinished">
+          <div>
+            <button mat-raised-button matStepperPrevious>Zurück</button>
+            <button mat-raised-button color="primary" [disabled]="!contactDataStep.valid"
+                    (click)="sendRegistration()">Registrieren
+            </button>
+          </div>
+        </ng-container>
+      </section>
     </mat-step>
   </mat-stepper>
 

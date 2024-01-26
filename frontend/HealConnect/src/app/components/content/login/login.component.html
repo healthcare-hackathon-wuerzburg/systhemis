@@ -14,7 +14,7 @@
       <mat-error *ngIf="passwordControl.invalid">Du musst ein Passwort eingeben</mat-error>
     </mat-form-field>
     <mat-error *ngIf="loginFailed">Anmeldung Fehlgeschlagen. Bitte überprüfe deine Eingaben.</mat-error>
-    <button mat-button [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
+    <button mat-raised-button color="primary" [aria-disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
   </form>
 
   <div class="register-info">
